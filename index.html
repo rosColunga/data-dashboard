@@ -3,9 +3,76 @@
   <head>
     <meta charset="utf-8">
     <title>Data Dashboard</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:400,600|Open+Sans+Condensed:300,700" rel="stylesheet">
   </head>
   <body>
+    <!-- Barra de navegación principal -->
+    <section class="nav-container">
+      <nav>
+        <h1>DATA DASHBOARD</h1>
+        <img class="logo" src="assets/images/logo.svg" alt="">
+        <div class="ham-menu">
+          <hr>
+          <hr>
+          <hr>
+        </div>
+      </nav>
+    </section>
 
+    <!-- Menú lateral -->
+    <aside class="left-menu">
+      <div class="user">
+        <p class="avatar-name">LB</p>
+        <section class="lucile">
+          <h2 class="lu">Lucile Baratier</h2> <br>
+          <p class="email">lucile@laboratoria.la</p>
+        </section>
+      </div>
+      <!-- Lista de secciones-->
+      <ul>
+        <li>Alumnas</li>
+        <li>Profesores</li>
+        <li>Configuración</li>
+        <li>Cerrar Sesión</li>
+      </ul>
+    </aside>
+    <!-- Secciones de contenido -->
+    <main id="tabs-container">
+      <div class="wrapper">
+        <!-- Tabs -->
+        <div class="tabs">
+          <button onclick="openMe('first')" class="tab">Arequipa</button>
+          <button onclick="openMe('second')" class="tab">CDMX</button>
+          <button onclick="openMe('third')" class="tab">Chile</button>
+          <button onclick="openMe('fourth')" class="tab">Lima</button>
+        </div>
+        <!-- Gráficas y textos Arequipa-->
+        <div id="first" class="content">
+          <h2>Alumnas Arequipa</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+        <!-- Gráficas y textos CDMX-->
+        <div id="second" class="content">
+          <h2>Alumnas CDMX</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+        <!-- Gráficas y textos Chile-->
+        <div id="third" class="content">
+          <h2>Alumnas Chile</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+        <!-- Gráficas y textos Lima-->
+        <div id="fourth" class="content">
+          <h2>Alumnas Lima</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+      </div>
+    </main>
 		<!-- Base de datos -->
 		<script src="./js/data.js"></script>
 		<!-- Aquí va tus archivos JS -->

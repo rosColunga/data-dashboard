@@ -1,3 +1,169 @@
 /*
  * Estilos de tu proyecto
  */
+body {
+   font-family: "Open Sans Condensed", sans-serif;
+   margin: 0;
+   padding: 0;
+ }
+
+ div.ham-menu {
+   float: right;
+   overflow: hidden;
+   width: 28px;
+   height: 35px;
+   padding: 3px 7px;
+   padding-top: 0;
+   margin: 15px 5px;
+   border: 1px solid black;
+   border-radius: 4px;
+ }
+
+h1 {
+  margin: 0 5px 30px 0;
+  font-size: 30px;
+}
+
+h1, img.logo,
+.ham-menu, p.avatar-name,
+section.lucile,
+aside.left-menu,
+main#tabs-container  {
+  display: inline-block;
+}
+
+h2.lu {
+  line-height: 0;
+  font-size: 25px;
+  margin: 0;
+}
+
+hr {
+  font-weight: bolder;
+  border-style: solid;
+}
+
+main#tabs-container {
+  width:80%;
+  height: 100%;
+  margin: 5px;
+  float: right;
+  overflow: hidden;
+}
+
+nav {
+  margin: 0 5px;
+}
+
+p.avatar-name {
+  border-radius: 50%;
+  background: gray;
+  text-align: center;
+  font-size: 45px;
+  font-weight: 700;
+  color: #fff;
+  height: 50px;
+  width: 50px;
+  padding: 5px;
+  padding-top: 3px;
+  margin-left: 5px;
+}
+
+p.email {
+  line-height: 0;
+  margin: 0;
+  font-size: 12px;
+  color: gray;
+}
+
+section.lucile {
+  margin: 15px 10px;
+}
+
+ul {
+  margin-top: 0;
+}
+
+ul li {
+  list-style: none;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  padding: 15px 0;
+  font-size: 25px;
+}
+
+div.user {
+  padding: 0;
+  margin: 0;
+}
+
+aside.left-menu {
+  width: 250px;
+  height: 600px;
+  border: 1px solid gray;
+}
+
+.content {
+  box-sizing: content-box;
+  font-family: 'Josefin Slab', serif;
+  text-align: left;
+  font-size: 20px;
+  padding: 5px 20px;
+  color: #000;
+  display: none;
+}
+
+.content>h2{
+  font-family: "Open Sans Condensed", sans-serif;
+  font-weight: 300;
+}
+
+.logo {
+  width: 160px;
+  height: 50px;
+  text-align: center;
+  position: relative;
+  left: 25%;
+  top: 7px;
+}
+
+.nav-container {
+  border: 1px solid black;
+  height: 80px;
+  margin: 0;
+  padding: 0;
+}
+
+.tab {
+  border-color: transparent;
+  text-transform: uppercase;
+  font-family: "Open Sans Condensed", sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  background: #fff;
+  color: #000;
+  outline: solid 1px black;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.tabs {
+  display: flex;
+}
+
+.tab:focus {
+  outline: none;
+  border: 1px solid white;
+  border-top: solid 3px yellow;
+}
+
+.wrapper {
+  font-family: sans-serif;
+  padding: 5px;
+  height: 1200px;
+  border: 1px solid black;
+  margin: 0 auto;
+  vertical-align: top;
+  text-align: center;
+}
