@@ -1,24 +1,68 @@
 /*
  * Estilos de tu proyecto
  */
-body {
-   font-family: "Roboto Condensed", sans-serif;
-   margin: 0;
-   padding: 0;
-   background: #E8E8E8;
- }
 
- div.ham-menu {
-   float: right;
-   overflow: hidden;
-   width: 28px;
-   height: 35px;
-   padding: 3px 7px;
-   padding-top: 0;
-   margin: 15px 5px;
-   background: #F7B617;
-   border-radius: 4px;
- }
+a.menu-opt {
+  display: block;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 15px 33px;
+  font-size: 25px;
+  transition: 0.1s;
+}
+
+a:hover {
+  background-color: #F7B617;
+  cursor: pointer;
+}
+
+aside.left-menu {
+  width: 350px;
+  height: 600px;
+  background: #FCFCFC;
+  border: 1.2px solid rgba(0, 0, 0, .09)
+}
+
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #E8E8E8;
+}
+
+div.ham-menu {
+  float: right;
+  overflow: hidden;
+  width: 28px;
+  height: 35px;
+  padding: 3px 7px;
+  padding-top: 0;
+  margin: 15px 5px;
+  background: #F7B617;
+  border-radius: 4px;
+  transition: 0.2s;
+}
+
+div.ham-menu:hover {
+  filter: brightness(95%);
+  cursor: pointer;
+}
+
+div.options {
+  margin-top: 0;
+}
+
+div.profes {
+  display: inline-block;
+  float: right;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+
+div.user {
+  padding: 0;
+  margin: 0;
+}
 
 h1 {
   margin: 0 5px 30px 10px;
@@ -26,11 +70,7 @@ h1 {
   font-weight: 400;
 }
 
-h1, img.logo,
-.ham-menu, p.avatar-name,
-section.lucile,
-aside.left-menu,
-main#tabs-container  {
+h1, img.logo, .ham-menu, p.avatar-name, section.lucile, aside.left-menu, main#tabs-container {
   display: inline-block;
 }
 
@@ -47,7 +87,7 @@ hr {
 }
 
 main#tabs-container {
-  width:71%;
+  width: 71%;
   height: 100%;
   margin: 18px;
   float: right;
@@ -88,28 +128,15 @@ section.lucile {
   margin: 15px 0;
 }
 
-ul {
-  margin-top: 0;
+select {
+  padding: 5px;
+  font-family: "Roboto Condensed",sans-serif;
+  font-size: 15px;
+  font-weight: 400;
 }
 
-ul li {
-  list-style: none;
-  text-transform: uppercase;
-  margin-bottom: 5px;
-  padding: 15px 0;
-  font-size: 25px;
-}
-
-div.user {
-  padding: 0;
-  margin: 0;
-}
-
-aside.left-menu {
-  width: 350px;
-  height: 600px;
-  background: #FCFCFC;
-  border: 1.2px solid rgba(0,0,0,.09)
+select:focus {
+  outline: none;
 }
 
 .content {
@@ -122,7 +149,7 @@ aside.left-menu {
   display: none;
 }
 
-.content>h2{
+.content>h2 {
   font-family: "Roboto Condensed", sans-serif;
   font-size: 25px;
   font-weight: 400;
@@ -138,7 +165,7 @@ aside.left-menu {
 }
 
 .nav-container {
-  border: 1.2px solid rgba(0,0,0,.09);
+  border: 1.2px solid rgba(0, 0, 0, .09);
   background: #FFF;
   height: 95px;
   margin: 0;
@@ -156,7 +183,11 @@ aside.left-menu {
   color: #FFF;
   padding: 10px 20px;
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.1s;
+}
+
+.tab:hover {
+  background-color: #a8a6a6;
 }
 
 .tabs {
@@ -172,12 +203,17 @@ aside.left-menu {
   color: #000;
 }
 
-.wrapper {padding: 5px;
+.wrapper {
+  padding: 5px;
   height: 1200px;
-  border-right: 1.2px solid rgba(0,0,0,.09);
+  border-right: 1.2px solid rgba(0, 0, 0, .09);
   background: #FCFCFC;
   margin: 0 auto;
   vertical-align: top;
   text-align: center;
   padding: 0;
+}
+
+#generation {
+  display: inline-block;
 }
