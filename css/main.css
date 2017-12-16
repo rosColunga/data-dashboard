@@ -2,9 +2,10 @@
  * Estilos de tu proyecto
  */
 body {
-   font-family: "Open Sans Condensed", sans-serif;
+   font-family: "Roboto Condensed", sans-serif;
    margin: 0;
    padding: 0;
+   background: #E8E8E8;
  }
 
  div.ham-menu {
@@ -15,13 +16,14 @@ body {
    padding: 3px 7px;
    padding-top: 0;
    margin: 15px 5px;
-   border: 1px solid black;
+   background: #F7B617;
    border-radius: 4px;
  }
 
 h1 {
-  margin: 0 5px 30px 0;
-  font-size: 30px;
+  margin: 0 5px 30px 10px;
+  font-size: 32px;
+  font-weight: 400;
 }
 
 h1, img.logo,
@@ -34,39 +36,45 @@ main#tabs-container  {
 
 h2.lu {
   line-height: 0;
-  font-size: 25px;
+  font-size: 30px;
+  font-weight: 400;
   margin: 0;
 }
 
 hr {
-  font-weight: bolder;
+  font-weight: 600;
   border-style: solid;
 }
 
 main#tabs-container {
-  width:80%;
+  width:71%;
   height: 100%;
-  margin: 5px;
+  margin: 18px;
   float: right;
   overflow: hidden;
+  outline: none;
+  border: none;
 }
 
 nav {
-  margin: 0 5px;
+  margin: 0 15px;
+  padding: 10px;
 }
 
 p.avatar-name {
   border-radius: 50%;
-  background: gray;
+  background: #C4C4C4;
   text-align: center;
-  font-size: 45px;
-  font-weight: 700;
+  font-size: 60px;
+  font-weight: 400;
   color: #fff;
-  height: 50px;
-  width: 50px;
+  height: 70px;
+  width: 70px;
   padding: 5px;
   padding-top: 3px;
-  margin-left: 5px;
+  margin: 15px;
+  margin-left: 38px;
+  padding: 9px;
 }
 
 p.email {
@@ -77,7 +85,7 @@ p.email {
 }
 
 section.lucile {
-  margin: 15px 10px;
+  margin: 15px 0;
 }
 
 ul {
@@ -98,14 +106,15 @@ div.user {
 }
 
 aside.left-menu {
-  width: 250px;
+  width: 350px;
   height: 600px;
-  border: 1px solid gray;
+  background: #FCFCFC;
+  border: 1.2px solid rgba(0,0,0,.09)
 }
 
 .content {
   box-sizing: content-box;
-  font-family: 'Josefin Slab', serif;
+  font-family: 'Roboto Mono', serif;
   text-align: left;
   font-size: 20px;
   padding: 5px 20px;
@@ -114,8 +123,9 @@ aside.left-menu {
 }
 
 .content>h2{
-  font-family: "Open Sans Condensed", sans-serif;
-  font-weight: 300;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 25px;
+  font-weight: 400;
 }
 
 .logo {
@@ -123,13 +133,14 @@ aside.left-menu {
   height: 50px;
   text-align: center;
   position: relative;
-  left: 25%;
+  left: 30%;
   top: 7px;
 }
 
 .nav-container {
-  border: 1px solid black;
-  height: 80px;
+  border: 1.2px solid rgba(0,0,0,.09);
+  background: #FFF;
+  height: 95px;
   margin: 0;
   padding: 0;
 }
@@ -137,12 +148,12 @@ aside.left-menu {
 .tab {
   border-color: transparent;
   text-transform: uppercase;
-  font-family: "Open Sans Condensed", sans-serif;
-  font-weight: 700;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 400;
   font-size: 25px;
-  background: #fff;
-  color: #000;
-  outline: solid 1px black;
+  margin-right: 5px;
+  background: #C4C4C4;
+  color: #FFF;
   padding: 10px 20px;
   cursor: pointer;
   transition: 0.2s;
@@ -155,15 +166,18 @@ aside.left-menu {
 .tab:focus {
   outline: none;
   border: 1px solid white;
-  border-top: solid 3px yellow;
+  border-top: solid 3px #F7B617;
+  background: #fff;
+  font-weight: 700;
+  color: #000;
 }
 
-.wrapper {
-  font-family: sans-serif;
-  padding: 5px;
+.wrapper {padding: 5px;
   height: 1200px;
-  border: 1px solid black;
+  border-right: 1.2px solid rgba(0,0,0,.09);
+  background: #FCFCFC;
   margin: 0 auto;
   vertical-align: top;
   text-align: center;
+  padding: 0;
 }
