@@ -35,82 +35,58 @@
         <a class="menu-opt">Cerrar Sesión</a>
       </div>
     </aside>
-    <!-- Secciones de contenido -->
-    <main id="tabs-container">
-      <div class="wrapper">
-        <!-- Tabs -->
-        <div class="tabs">
-          <button onclick="openMe('first')" class="tab">Arequipa</button>
-          <button onclick="openMe('second')" class="tab">CDMX</button>
-          <button onclick="openMe('third')" class="tab">Chile</button>
-          <button onclick="openMe('fourth')" class="tab">Lima</button>
-        </div>
-        <!-- Gráficas y textos Arequipa-->
-        <div id="first" class="content">
-          <h2>Alumnas Arequipa</h2>
-          <div class="profes">
-            <a class="profess" href="#">Ver Profesores</a>
-          </div>
-          <div>
-            <select id='generation'>
-              <option value="">Selecciona una Generación</option>
-              <option value="">Generación 2017-1</option>
-              <option value="">Generación 2017-2</option>
-            </select>
-          </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        </div>
-        <!-- Gráficas y textos CDMX-->
-        <div id="second" class="content">
-          <h2>Alumnas CDMX</h2>
-          <div class="profes">
-            <a class="profess" href="#">Ver Profesores</a>
-          </div>
-          <div>
-            <select id='generation'>
-              <option>Selecciona una Generación</option>
-              <option>Generación 2017-1</option>
-              <option>Generación 2017-2</option>
-            </select>
-          </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        </div>
-        <!-- Gráficas y textos Chile-->
-        <div id="third" class="content">
-          <h2>Alumnas Chile</h2>
-          <div class="profes">
-            <a class="profess" href="#">Ver Profesores</a>
-          </div>
-          <div>
-            <select id='generation'>
-              <option>Selecciona una Generación</option>
-              <option>Generación 2017-1</option>
-              <option>Generación 2017-2</option>
-            </select>
-          </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        </div>
-        <!-- Gráficas y textos Lima-->
-        <div id="fourth" class="content">
-          <h2>Alumnas Lima</h2>
-          <div class="profes">
-            <a class="profess" href="#">Ver Profesores</a>
-          </div>
-          <div>
-            <select id='generation'>
-              <option>Selecciona una Generación</option>
-              <option>Generación 2017-1</option>
-              <option>Generación 2017-2</option>
-            </select>
-          </div>
+    <main>
 
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
+      <!--Contenedor de datos de información-->
+      <div class="wrapper">
+        <!-- Pestañas de visualizacion -->
+        <div class="pestañas">
+          <button class="opcionesPestaña" onclick="openPage(event, 'info')" id="default">INFORMATION</button>
+          <button class="opcionesPestaña" onclick="openPage(event, 'students')">ESTUDIANTES</button>
         </div>
+        <!--Contenedor filtros-->
+        <div id="filters">
+          <!--Filtro para sedes-->
+          <div class="nombre">Selecciona una sede</div>
+          <select id="sede">
+            <option value="">-------</option>
+            <option value="AQP">Arequipa</option>
+            <option value="CDMX">Ciudad de México</option>
+            <option value="LIM">Lima</option>
+            <option value="SCL">Santiago de Chile</option>
+          </select>
+          <!--Filtro para generaciones-->
+          <div class="nombre">Selecciona una generacion</div>
+          <select id="generacion">
+            <option value="">-------</option>
+            <option value="2016-2">2016-2</option>
+            <option value="2017-1">2017-1</option>
+            <option value="2017-2">2017-2</option>
+          </select>
+        </div>
+
+        <!--Area donde se mostraran los datos y gráficas -->
+        <section id="container">
+          <section id="info" class="tabs">
+            <div class="info-container single">
+
+              <h4>Total de Alumnas por Generación</h4>
+              <div>
+                <span id="current-students">0</span>
+                <h5> estudiantes activas</h5>
+              </div>
+              <div class="info double">
+                <span id="dropout">0</span>
+                <h5>% de deserción</h5>
+              </div>
+            </div>
+
+          </section>
+
+
       </div>
+
+
     </main>
 		<!-- Base de datos -->
 		<script src="./js/data.js"></script>
