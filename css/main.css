@@ -5,10 +5,16 @@
 a.menu-opt {
   display: block;
   text-transform: uppercase;
+  text-decoration: none;
+  color: #000;
   margin: 0;
-  padding: 15px 33px;
+  padding: 15px 60px;
   font-size: 25px;
-  transition: 0.1s;
+  transition: all .2s ease-in-out;
+}
+
+a>i.fa{
+  color: #000;
 }
 
 a:hover {
@@ -16,14 +22,16 @@ a:hover {
   cursor: pointer;
 }
 
-aside.left-menu {
+.left-menu {
   width: 350px;
   height: 600px;
   background: #FCFCFC;
-  border: 1.2px solid rgba(0, 0, 0, .09)
+  border: 1.2px solid rgba(0, 0, 0, .09);
 }
 
 body {
+  margin: 0;
+  padding: 0;
   font-family: "Roboto Condensed", sans-serif;
   margin: 0;
   padding: 0;
@@ -40,11 +48,11 @@ div.ham-menu {
   margin: 15px 5px;
   background: #F7B617;
   border-radius: 4px;
-  transition: 0.2s;
+  transition: all .2s ease-in-out;
 }
 
 div.ham-menu:hover {
-  filter: brightness(95%);
+  filter: brightness(85%);
   cursor: pointer;
 }
 
@@ -52,11 +60,25 @@ div.options {
   margin-top: 0;
 }
 
+a.profess {
+  text-decoration: none;
+  color: #FFF;
+}
+
 div.profes {
   display: inline-block;
-  float: right;
-  overflow: hidden;
+  text-align: right;
+  color: #FFF;
+  padding: 10px;
+  margin: 15px;
+  margin-left: 20px;
+  background: #A8A6A6;
   text-transform: uppercase;
+}
+
+div.profes:hover {
+  background-color: #F7B617;
+  cursor: pointer;
 }
 
 div.user {
@@ -70,7 +92,7 @@ h1 {
   font-weight: 400;
 }
 
-h1, img.logo, .ham-menu, p.avatar-name, section.lucile, aside.left-menu, main#tabs-container {
+h1, img.logo, .ham-menu, p.avatar-name, section.lucile,.left-menu, main#tabs-container {
   display: inline-block;
 }
 
@@ -86,14 +108,15 @@ hr {
   border-style: solid;
 }
 
-main#tabs-container {
-  width: 71%;
+main {
+  width: 68%;
   height: 100%;
-  margin: 18px;
+  margin:10px;
+  padding: 10px;
   float: right;
   overflow: hidden;
   outline: none;
-  border: none;
+  border: transparent;
 }
 
 nav {
@@ -130,6 +153,8 @@ section.lucile {
 
 select {
   padding: 5px;
+  margin: 15px;
+  margin-left: 5px;
   font-family: "Roboto Condensed",sans-serif;
   font-size: 15px;
   font-weight: 400;
@@ -172,48 +197,139 @@ select:focus {
   padding: 0;
 }
 
-.tab {
+#default, .opcionesPestaña {
   border-color: transparent;
   text-transform: uppercase;
   font-family: "Roboto Condensed", sans-serif;
   font-weight: 400;
   font-size: 25px;
-  margin-right: 5px;
+  margin-right: 0;
   background: #C4C4C4;
+  border-top: solid 5px #C4C4C4;
   color: #FFF;
   padding: 10px 20px;
   cursor: pointer;
-  transition: 0.1s;
+  transition: all .2s ease-in-out;
 }
 
-.tab:hover {
+#default, .opcionesPestaña:hover {
   background-color: #a8a6a6;
+  border-top: solid 5px #a8a6a6;
 }
 
-.tabs {
-  display: flex;
-}
-
-.tab:focus {
+#default, .opcionesPestaña:focus {
   outline: none;
-  border: 1px solid white;
-  border-top: solid 3px #F7B617;
+  border: none;
+  border-top: solid 5px #F7B617;
   background: #fff;
   font-weight: 700;
   color: #000;
 }
 
 .wrapper {
-  padding: 5px;
-  height: 1200px;
+  padding: 0;
   border-right: 1.2px solid rgba(0, 0, 0, .09);
   background: #FCFCFC;
   margin: 0 auto;
   vertical-align: top;
-  text-align: center;
   padding: 0;
+  display: inline-block;
+  width: 100%;
+  float: right;
+  overflow: hidden;
 }
 
-#generation {
+#generation, option {
   display: inline-block;
+}
+
+
+
+div#filters {
+  margin: 15px 0 10px 25px;
+  display: inline-block;
+}
+
+
+.nombre{
+  display: inline-block;
+  text-align: left;
+  margin: 25px 5px 0 15px;
+}
+
+.info-container.single{
+  width: 43%;
+  margin: 25px;
+  text-align: left;
+  padding: 15px;
+  border: .5px dashed rgba(0, 0, 0, 0.2);
+}
+
+h4 {
+  font-size: 23px;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 1em;
+  margin-top: 0;
+}
+
+h5 {
+  font-size: 15px;
+  font-weight: 400;
+  margin-right: 0;
+}
+
+div.info-double {
+  font-size: 15px;
+  font-weight: 400;
+  display: inline-block;
+  margin: 15px;
+  margin-bottom: 40px;
+  vertical-align: middle;
+  margin-left: 5px;
+  padding: 8px;
+  padding-bottom: 0;
+}
+
+span, i.fa-check-square-o, i.fa-percent {
+  font-size: 45px;
+  margin: 0 auto;
+  margin-left: 15px;
+  display: inline-block;
+}
+
+i.fa {
+  color: #F7B617;
+}
+
+.dropdown {
+  float: right;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.dropdown-content {
+  font-family: "Roboto Condensed", sans-serif;
+  display: none;
+  float: right;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  overflow: hidden;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {
+  background-color: #f1f1f1
+}
+
+.show {
+  display:inline-block;
 }
