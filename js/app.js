@@ -1,55 +1,80 @@
-/*
- * Funcionalidad de tu producto
- */
+//evento para que cuando cargue la página comience a cargar toda la información
+window.addEventListener('load', allFunctions);
 
- function openMe(inside) {
-   var i, content;
-   content = document.getElementsByClassName('content');
-   for (i = 0; i<content.length; i++) {
-     content[i].style.display= "none";
-   }
-   document.getElementById(inside).style.display= "block";
- }
+//función para que funcionen los tabs de informaciópn y de estudiantes
+function openPage(evnt, options) {
+  var  tabs, opcionesPestaña;
+  tabs = document.getElementsByClassName('tabs');
+  for (i = 0; i < tabs.length; i++) {
+    tabs[i].style.display = 'none';
+  }
+  //de acuerdo al elemento que se selcciones de las pestaññas se ,mostrara l información contenida en cada una
+  opcionesPestaña = document.getElementsByClassName('opcionesPestaña');
+  for (i = 0; i < opcionesPestaña.length; i++) {
+    opcionesPestaña[i].className = opcionesPestaña[i].className.replace('active', '');
+  }
+  document.getElementById(options).style.display = 'block';
+  evnt.currentTarget.className += 'active';
+}
+document.getElementById('default').click();
+
+//función que ayudará a conseguir los datos de generación y sede que se seleccione de la lista
+function allFunctions() {
+  var porSede = document.getElementById('sede');
+  var porGeneracion = document.getElementById('generacion');
+  //evento para que cambie la información cuando se seleccione la sede
+  porSede.addEventListener('change', generaciones);
+  document.addEventListener('change', info);
 
 
- // Puedes hacer uso de la base de datos a través de la variable `data`
-// console.log(data.CDMX['2017-1'.studentes.active);
- /*Declaración de Laboratoriables con los datos proporcionados por el cliente*/
- /* var alumnasActivas=0;
- var total=0;
- var desertoras=0;
- var meta=0;
- var nps=0;
- var metaTec=0;
- var metaHse=0;
- var alumnasSatisfechas=0;
- var promedioProfes=0;
- var promedioJedi=0;*/
- /*evento de click cuando se selecciona ciudad de México generación 2017-1*/
- //document.getElementById('ciudad de mexico generacion20171buscar en html').addEventListener('click',function()){
- /*Variables usadas para ciudad y generación 2017-1, todas van inicializadas en cero*/
-  /* var desertoras171=0;
-   var hse=0;
-   var tech=0;
-   var total=0;
-   var sprint=0;*/
+  /*funció n que nos ayuda a llamar la data de las generaciones*/
+  function generaciones(event) {
+    /*hacer iteración de la data, se usará el object keys para solicitar los datos de la data*/
+    for (var i = 0; i < Object.keys('data').length; i++) {
+      if (event.target.value === Object.keys('data')[i]) {
+        porGeneracion.innerHTML = '';
+        //llamar los datos de acuerdo a la sede y generación
+        var listaGeneracion = Object.keys(data[porSede.value]);
+        //se usara un for  para hacer iteración de los elementos que se encuentran en la lista de generaciones
+        for (var j = 0; j < listaGeneracion.length; j++) {
+          var optionsionPromo = document.createElement('optionsion');
+          optionsionPromo.value = listaGeneracion[j];
+          optionsionPromo.textContent = listaGeneracion[j];
+          porGeneracion.appendChild(optionsionPromo);
+        }
+      }
+    }
+  }
 
-   /*conocer total de alumnas generación 2017-1*/
-  // document.getElementById(buscartotalde alumnas en html).innerHTML = totalGen4.length;
-   /*se hara el redondeo del total de desertoras total entre el total de alumnas
-   registradas en la base de datos*/
-  /* desertoras = Math.round((desertoras171 * 100) / totalGen4.length);
-   document.getElementById(buscar donde van desertoras en html).innerHTML = desertoras;
-*/
- /*conocer la cantidad de alumnas de la primera
- generación de 2017 en CDMX; esto se  hará atraves de itearciones
- de la base de datos*/
-  /* var totalGen4= data.CDMX['2017-1'].students;
-   for(var i=0; i< totalGen4.length; i++){ */
-     /*se realizará un if por si la alumna aparace como false en
-     'active' entnces la sume a las desertoras171*/
-    /* if(totalGen4[i].active === false){
-       desertoras171++;
-     }
-   }
-   */
+  /*función que desplegará los datos en pantalla de acuerdo a lo solicitado en este caso primero mostraremos
+  las estudientes activas y el porcentaje de deserción*/
+
+  function info(event) {
+    if (event.target === porSede || event.target === porGeneracion) {
+      var students = data[porSede.value][porGeneracion.value].students; //veriable para estudientes
+      var activeStudents = 0; //estudiantes activas
+      var dropoutStudents = 0; //estudientes desertoras
+      var overcomeStudents = 0;
+      var techTarget = 0;
+      var hseTarget = 0;
+
+      //se hace una iteración para conocer las estudientes que se encuentran activas
+      for (var i = 0; i < students.length; i++) {
+        if (students[i]['active'] === true) {
+          // si están activas entonces se aumentara el contador de
+          activeStudents++;
+          //si es falso aumentará el contador de desertoras
+        } else {
+          dropoutStudents++;
+        }
+      }
+      //mostrar datos en pantalla la primera es para etsudiantes activa y la segunda muestra el porcentaje de desertoras
+      document.getElementById('current-students').textContent = activeStudents;
+      document.getElementById('dropout').textContent = Math.round((dropoutStudents / students.length) * 100);
+    }
+  }
+
+
+
+
+};
