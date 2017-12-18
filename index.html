@@ -5,6 +5,7 @@
     <title>Data Dashboard</title>
     <link rel="stylesheet" href="css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="assets/fonts/font-awesome/css/font-awesome.min.css">
   </head>
   <body>
     <!-- Barra de navegación principal -->
@@ -12,11 +13,18 @@
       <nav>
         <h1>DATA DASHBOARD</h1>
         <img class="logo" src="assets/images/logo.svg" alt="">
-        <div class="ham-menu">
-          <hr>
-          <hr>
-          <hr>
+        <div class="dropdown">
+          <div class="ham-menu" onclick="myFunction()">
+            <hr>
+            <hr>
+            <hr>
+          </div>
         </div>
+        <div id="myDropdown" class="dropdown-content">
+          <a href="#home">EN / ESP</a>
+          <a  href="http://www.laboratoria.la/" onclick="return(logOut())" >Log-out</a>
+        </div>
+
       </nav>
     </section>
 
@@ -31,8 +39,8 @@
       </div>
       <!-- Lista de secciones-->
       <div class="options">
-        <a class="menu-opt">Configuración</a>
-        <a class="menu-opt">Cerrar Sesión</a>
+        <a class="menu-opt"> <i class="fa fa-cog" aria-hidden="true"></i> Configuración</a>
+        <a href="http://www.laboratoria.la/" onclick="return(logOut())" class="menu-opt"> <i class="fa fa-sign-out" aria-hidden="true"></i> Cerrar Sesión</a>
       </div>
     </aside>
     <main>
@@ -41,7 +49,7 @@
       <div class="wrapper">
         <!-- Pestañas de visualizacion -->
         <div class="pestañas">
-          <button class="opcionesPestaña" onclick="openPage(event, 'info')" id="default">INFORMATION</button>
+          <button class="opcionesPestaña" onclick="openPage(event, 'info')" id="default">INFORMACIÓN</button>
           <button class="opcionesPestaña" onclick="openPage(event, 'students')">ESTUDIANTES</button>
         </div>
         <!--Contenedor filtros-->
@@ -56,7 +64,7 @@
             <option value="SCL">Santiago de Chile</option>
           </select>
           <!--Filtro para generaciones-->
-          <div class="nombre">Selecciona una generacion</div>
+          <div class="nombre">Selecciona una generación</div>
           <select id="generacion">
             <option value="">-------</option>
             <option value="2016-2">2016-2</option>
@@ -64,20 +72,22 @@
             <option value="2017-2">2017-2</option>
           </select>
         </div>
-
+        <div class="profes">
+          <a class="profess" href="#">Ver Profesores</a>
+        </div>
         <!--Area donde se mostraran los datos y gráficas -->
         <section id="container">
           <section id="info" class="tabs">
-            <div class="info-container single">
 
+            <div class="info-container single">
               <h4>Total de Alumnas por Generación</h4>
-              <div>
-                <span id="current-students">0</span>
-                <h5> estudiantes activas</h5>
+              <div class="info-double">
+                <span id="current-students">0</span> <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                <h5>No. Estudiantes inscritas</h5>
               </div>
-              <div class="info double">
-                <span id="dropout">0</span>
-                <h5>% de deserción</h5>
+              <div class="info-double">
+                <span id="dropout">0</span> <i class="fa fa-percent" aria-hidden="true"></i>
+                <h5>Porcentaje (%) de deserción</h5>
               </div>
             </div>
 
