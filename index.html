@@ -53,7 +53,7 @@
     </div>
     <!-- Lista de secciones menú lateral-->
     <div class="options">
-      <a class="menu-opt"> <i class="fa fa-cog" aria-hidden="true"></i> Configuración</a>
+      <a href="file:///C:/Users/Victoria/Desktop/producto-final-sprint2/data-dashboard/views/config.html" class="menu-opt"> <i class="fa fa-cog" aria-hidden="true"></i> Configuración</a>
       <a href="http://www.laboratoria.la/" onclick="return(logOut())" class="menu-opt"> <i class="fa fa-sign-out" aria-hidden="true"></i> Cerrar Sesión</a>
     </div>
   </aside>
@@ -64,7 +64,7 @@
       <!-- Pestañas de visualizacion -->
       <div class="pestañas">
         <button class="opcionesPestaña" onclick="openPage(event, 'info')" id="default">INFORMACIÓN</button>
-        <button class="opcionesPestaña" onclick="openPage(event, 'students')">ESTUDIANTES</button>
+        <button class="opcionesPestaña" onclick="openPage(event, 'students')" id="noDefault">ESTUDIANTES</button>
       </div>
       <!--Contenedor filtros-->
       <div id="filters">
@@ -94,7 +94,7 @@
       </div>
       <!--Acceso directo a ver profesores-->
       <div class="profes">
-        <a class="profess" href="#">Ver Profesores</a>
+        <a class="profess" href="#verProfesores">Ver Profesores</a>
       </div>
       <!--Área donde se mostraran los datos y gráficas -->
       <section id="container">
@@ -103,11 +103,11 @@
           <div class="info-container single">
             <h4>Total de Alumnas por Generación</h4>
             <div class="info-double">
-              <span id="current-students">0</span> <i class="fa fa-check-square-o" aria-hidden="true"></i>
+              <span id="current-students">0</span> <i class="fa fa-check-square-o accent" aria-hidden="true"></i>
               <h5>No. Estudiantes activas</h5>
             </div>
             <div class="info-double">
-              <span id="dropout">0</span> <i class="fa fa-percent" aria-hidden="true"></i>
+              <span id="dropout">0</span> <i class="fa fa-percent accent" aria-hidden="true"></i>
               <h5>Porcentaje (%) de deserción</h5>
             </div>
           </div>
@@ -117,27 +117,26 @@
           <div class="info-container single">
             <h4>RENDIMIENTO</h4>
             <div class="info-double">
-              <span id="pass-average">0</span>
-              <h5>Alumnas que superan la meta de puntos</h5>
+              <span id="pass-average">0</span> <i class="fa fa-flag-o accent" aria-hidden="true"></i>
+              <h5>Alumnas que superan <br> la meta de puntos</h5>
             </div>
             <div class="info-double">
-              <span id="pass-percent">0</span>
-              <h5>POrcentje de alumnas que superan los puntos</h5>
+              <span id="pass-percent">0</span> <i class="fa fa-percent accent" aria-hidden="true"></i>
+              <h5>Porcentaje de alumnas <br> que superan los puntos</h5>
             </div>
           </div>
 
 
           <div class="info-container single">
             <div class="info-double">
-              <h4>SUPERAN META</h4>
-              <h4>DE PUNTOS TECH</h4>
+              <h4>SUPERAN META DE PUNTOS TECH</h4>
               <div class="info-double">
-                <span id="tech-target-average">0</span>
-                <h5>alumnas en promedio</h5>
+                <span id="tech-target-average">0</span> <i class="fa fa-line-chart accent" aria-hidden="true"></i>
+                <h5>Alumnas en promedio</h5>
               </div>
               <div class="info-double">
-                <span id="tech-target-sprint">0</span>
-                <h5>alumnas en este sprint</h5>
+                <span id="tech-target-sprint">0</span><i class="fa fa-users accent" aria-hidden="true"></i>
+                <h5>Alumnas en este sprint</h5>
               </div>
             </div>
           </div>
@@ -146,56 +145,83 @@
 
           <div class="info-container single">
             <div class="info-double">
-              <h4>SUPERAN META</h4>
-              <h4>DE PUNTOS TECH</h4>
+              <h4>SUPERAN META DE PUNTOS HSE</h4>
               <div class="info-double">
-                <span id="hse-target-average">0</span>
-                <h5>alumnas en promedio</h5>
+                <span id="hse-target-average">0</span><i class="fa fa-line-chart accent" aria-hidden="true"></i>
+                <h5>Alumnas en promedio</h5>
               </div>
               <div class="info-double">
-                <span id="hse-target-sprint">0</span>
-                <h5>alumnas en este sprint</h5>
+                <span id="hse-target-sprint">0</span><i class="fa fa-users accent" aria-hidden="true"></i>
+                <h5>Alumnas en este sprint</h5>
               </div>
             </div>
           </div>
 
-          <div class="info-container single">
-            <h4>EXPERIENCIA LABORATORIA</h4>
-            <div class="info">
-              <span id="satisfaction-percent">0</span>
-              <h5>de alumnas satisfechas</h5>
+          <div id="block" class="info-container single">
+            <div class="info-double">
+              <h4>EXPERIENCIA LABORATORIA</h4>
+              <div class="info">
+                <span id="satisfaction-percent">0</span>  <i class="fa fa-heart accent" aria-hidden="true"></i>
+                <h5> <strong>%</strong> De alumnas satisfechas</h5>
+              </div>
             </div>
           </div>
-          <div class="info-container single">
+
+          <div class="info-container single" id="verProfesores">
             <h4>PUNTUACIÓN PROFESORES</h4>
             <div class="info">
-              <span id="teachers-avrg">0</span>
-              <h5>puntos en promedio</h5>
+              <span id="teachers-avrg">0</span> <i class="fa fa-thumbs-o-up accent pros" aria-hidden="true"></i>
+              <h5>Puntos en promedio</h5>
             </div>
           </div>
-          <div class="info-container single">
+          <div class="info-container single" id="verProfesores">
             <h4>PUNTUACIÓN JEDI MASTERS</h4>
             <div class="info">
-              <span id="jedi-avrg">0</span>
-              <h5>puntos en promedio</h5>
+              <span id="jedi-avrg">0</span> <i class="fa fa-hand-o-up accent pros" aria-hidden="true"></i>
+              <h5>Puntos en promedio</h5>
             </div>
           </div>
 
           <div class="info-container single">
 
-            <div class="double">
+            <div class="double large">
               <pre class="icon-pie-chart"></pre>
               <h4>NET PROMOTER SCORE</h4>
               <div class="info">
-                <span id="nps">0</span>
-                <h5>NPS promedio de todos los sprints</h5>
-                <p>Promoters &emsp;<span class="secondary" id="promoters">0</span></p>
-                <p>Passive &emsp;<span class="secondary" id="passive">0</span></p>
-                <p>Detractors &emsp;<span class="secondary" id="detractors">0</span></p>
+                <h5 class="large">NPS promedio de todos los sprints</h5><span id="nps">0</span><br><hr>
+                <p class="large">Promoters &emsp;<span class="secondary" id="promoters">0</span></p> <i class="fa fa-comments-o accent" aria-hidden="true"></i><br><hr>
+                <p class="large">Passive &emsp;<span class="secondary" id="passive">0</span></p> <i class="fa fa-hand-paper-o accent" aria-hidden="true"></i><br><hr>
+                <p class="large">Detractors &emsp;<span class="secondary" id="detractors">0</span></p> <i class="fa fa-exclamation-triangle accent" aria-hidden="true"></i><br><hr>
               </div>
             </div>
 
         </section>
+
+        <section id="container">
+          <section id="students" class="tabs">
+            <h4><strong>ALUMNAS</strong></h4>
+            <div class="perfiles">
+              <img src="assets/images/alumna.png" alt="">
+              <p class="avatar-name skills">UX</p>
+            </div> <br>
+            <div class="perfiles">
+              <img src="assets/images/alumna.png" alt="">
+              <p class="avatar-name skills">JS</p>
+            </div> <br>
+
+            <h4><strong>PROFESORES</strong></h4>
+            <div class="perfiles">
+              <img src="assets/images/profesor.png" alt="">
+              <p class="avatar-name skills">JS</p>
+              <p class="avatar-name skills">JQ</p>
+            </div> <br>
+
+            <div class="perfiles">
+              <img src="assets/images/profesor.png" alt="">
+              <p class="avatar-name skills">UI</p>
+              <p class="avatar-name skills">UX</p>
+            </div> <br>
+          </section>
 
 
         </div>

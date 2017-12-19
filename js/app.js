@@ -160,11 +160,11 @@ window.onclick = function(event) {
 
     // Optional; add a title and set the width and height of the chart
     var options = {
-      'title': 'Porcentaje',
+      'title': '',
       'width': 400,
       'height': 300,
       is3D: true,
-      colors: ['#FFC107', "#FF8F00", '#FFD54F', '#FFECB3'],
+      colors: ['#005260', "#047a8e", '#12b786', '#087c5a'],
     };
 
     // Display the chart inside the <div> element with id="piechart"
