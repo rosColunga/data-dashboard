@@ -1,195 +1,211 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Data Dashboard</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto+Mono" rel="stylesheet">
-    <link rel="stylesheet" href="assets/fonts/font-awesome/css/font-awesome.min.css">
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  </head>
-  <body>
-    <!-- Barra de navegación principal -->
-    <section class="nav-container">
-      <nav>
-        <h1>DATA DASHBOARD</h1>
-        <img class="logo" src="assets/images/logo.svg" alt="">
-        <div class="dropdown">
-          <div class="ham-menu" onclick="myFunction()">
-            <hr>
-            <hr>
-            <hr>
-          </div>
-        </div>
-        <div id="myDropdown" class="dropdown-content">
-          <a href="#home">EN / ESP</a>
-          <a  href="http://www.laboratoria.la/" onclick="return(logOut())" >Log-out</a>
-        </div>
+<!--Tipo de archivo e dioma del sitio web-->
+<html lang="es">
 
-      </nav>
-    </section>
+<head>
+  <!--Indica codificación de carácteres-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!--Vínculo a archivo de estilos: css-->
+  <link rel="stylesheet" href="css/main.css">
+  <!--Vinculando tipografías-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto+Mono" rel="stylesheet">
+  <link rel="stylesheet" href="assets/fonts/font-awesome/css/font-awesome.min.css">
+  <!--Gráficos Google Charts-->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <!--El título de la página-->
+  <title>Data Dashboard</title>
+</head>
 
-    <!-- Menú lateral -->
-    <aside class="left-menu">
-      <div class="user">
-        <p class="avatar-name">LB</p>
-        <section class="lucile">
-          <h2 class="lu">Lucile Baratier</h2> <br>
-          <p class="email">lucile@laboratoria.la</p>
-        </section>
+<body>
+  <!-- Barra de navegación principal -->
+  <section class="nav-container">
+    <nav>
+      <h1>DATA DASHBOARD</h1>
+      <!-- Logotipo -->
+      <img class="logo" src="assets/images/logo.svg" alt="">
+      <!-- Menú hamburguesa dropdown -->
+      <div class="dropdown">
+        <div class="ham-menu" onclick="myFunction()">
+          <hr>
+          <hr>
+          <hr>
+        </div>
       </div>
-      <!-- Lista de secciones-->
-      <div class="options">
-        <a class="menu-opt"> <i class="fa fa-cog" aria-hidden="true"></i> Configuración</a>
-        <a href="http://www.laboratoria.la/" onclick="return(logOut())" class="menu-opt"> <i class="fa fa-sign-out" aria-hidden="true"></i> Cerrar Sesión</a>
+      <!-- Opciones del menú-->
+      <div id="myDropdown" class="dropdown-content">
+        <a href="#home">EN / ESP</a>
+        <a href="http://www.laboratoria.la/" onclick="return(logOut())">Log-out</a>
       </div>
-    </aside>
-    <main>
+    </nav>
+  </section>
 
-      <!--Contenedor de datos de información-->
-      <div class="wrapper">
-        <!-- Pestañas de visualizacion -->
-        <div class="pestañas">
-          <button class="opcionesPestaña" onclick="openPage(event, 'info')" id="default">INFORMACIÓN</button>
-          <button class="opcionesPestaña" onclick="openPage(event, 'students')">ESTUDIANTES</button>
-        </div>
-        <!--Contenedor filtros-->
-        <div id="filters">
-          <!--Filtro para sedes-->
-          <div class="nombre">Selecciona una sede</div>
-          <select id="sede">
+  <!-- Menú lateral -->
+  <aside class="left-menu">
+    <!-- Datos de usuario-->
+    <div class="user">
+      <p class="avatar-name">LB</p>
+      <section class="lucile">
+        <h2 class="lu">Lucile Baratier</h2> <br>
+        <p class="email">lucile@laboratoria.la</p>
+      </section>
+    </div>
+    <!-- Lista de secciones menú lateral-->
+    <div class="options">
+      <a class="menu-opt"> <i class="fa fa-cog" aria-hidden="true"></i> Configuración</a>
+      <a href="http://www.laboratoria.la/" onclick="return(logOut())" class="menu-opt"> <i class="fa fa-sign-out" aria-hidden="true"></i> Cerrar Sesión</a>
+    </div>
+  </aside>
+  <main>
+
+    <!--Contenedor de datos de información-->
+    <div class="wrapper">
+      <!-- Pestañas de visualizacion -->
+      <div class="pestañas">
+        <button class="opcionesPestaña" onclick="openPage(event, 'info')" id="default">INFORMACIÓN</button>
+        <button class="opcionesPestaña" onclick="openPage(event, 'students')">ESTUDIANTES</button>
+      </div>
+      <!--Contenedor filtros-->
+      <div id="filters">
+        <!--Filtro para sedes-->
+        <div class="nombre">Selecciona una sede</div>
+        <select id="sede">
             <option value="">-------</option>
             <option value="AQP">Arequipa</option>
             <option value="CDMX">Ciudad de México</option>
             <option value="LIM">Lima</option>
             <option value="SCL">Santiago de Chile</option>
           </select>
-          <!--Filtro para generaciones-->
-          <div class="nombre">Selecciona una generación</div>
-          <select id="generacion">
+        <!--Filtro para generaciones-->
+        <div class="nombre">Selecciona una generación</div>
+        <select id="generacion">
             <option value="">-------</option>
             <option value="2016-2">2016-2</option>
             <option value="2017-1">2017-1</option>
             <option value="2017-2">2017-2</option>
           </select>
-          <select id="sprint">
+        <!--Filtro para sprint-->
+        <select id="sprint">
             <option value="">-------</option>
             <option value="1">Sprint 1</option>
             <option value="2">Sprint 2</option>
           </select>
-        </div>
-        <div class="profes">
-          <a class="profess" href="#">Ver Profesores</a>
-        </div>
-        <!--Area donde se mostraran los datos y gráficas -->
-        <section id="container">
-          <section id="info" class="tabs">
+      </div>
+      <!--Acceso directo a ver profesores-->
+      <div class="profes">
+        <a class="profess" href="#">Ver Profesores</a>
+      </div>
+      <!--Área donde se mostraran los datos y gráficas -->
+      <section id="container">
+        <section id="info" class="tabs">
 
-            <div class="info-container single">
-              <h4>Total de Alumnas por Generación</h4>
-              <div class="info-double">
-                <span id="current-students">0</span> <i class="fa fa-check-square-o" aria-hidden="true"></i>
-                <h5>No. Estudiantes activas</h5>
-              </div>
-              <div class="info-double">
-                <span id="dropout">0</span> <i class="fa fa-percent" aria-hidden="true"></i>
-                <h5>Porcentaje (%) de deserción</h5>
-              </div>
+          <div class="info-container single">
+            <h4>Total de Alumnas por Generación</h4>
+            <div class="info-double">
+              <span id="current-students">0</span> <i class="fa fa-check-square-o" aria-hidden="true"></i>
+              <h5>No. Estudiantes activas</h5>
             </div>
-
-             <div id="piechart"></div>
-
-            <div class="info-container single">
-              <h4>RENDIMIENTO</h4>
-              <div class="info-double">
-                <span id="pass-average">0</span>
-                <h5>Alumnas que superan la meta de puntos</h5>
-              </div>
-              <div class="info-double">
-                <span id="pass-percent">0</span>
-                <h5>POrcentje de alumnas que superan los puntos</h5>
-              </div>
+            <div class="info-double">
+              <span id="dropout">0</span> <i class="fa fa-percent" aria-hidden="true"></i>
+              <h5>Porcentaje (%) de deserción</h5>
             </div>
-             
+          </div>
+          <!--Gráfica de pastel-->
+          <div id="piechart"></div>
+
+          <div class="info-container single">
+            <h4>RENDIMIENTO</h4>
+            <div class="info-double">
+              <span id="pass-average">0</span>
+              <h5>Alumnas que superan la meta de puntos</h5>
+            </div>
+            <div class="info-double">
+              <span id="pass-percent">0</span>
+              <h5>POrcentje de alumnas que superan los puntos</h5>
+            </div>
+          </div>
+
 
           <div class="info-container single">
             <div class="info-double">
-                <h4>SUPERAN META</h4>
-                <h4>DE PUNTOS TECH</h4>
-                <div class="info-double">
-                  <span id="tech-target-average">0</span>
-                  <h5>alumnas en promedio</h5>
-                </div>
-                <div class="info-double">
-                  <span id="tech-target-sprint">0</span>
-                  <h5>alumnas en este sprint</h5>
-                </div>
+              <h4>SUPERAN META</h4>
+              <h4>DE PUNTOS TECH</h4>
+              <div class="info-double">
+                <span id="tech-target-average">0</span>
+                <h5>alumnas en promedio</h5>
+              </div>
+              <div class="info-double">
+                <span id="tech-target-sprint">0</span>
+                <h5>alumnas en este sprint</h5>
+              </div>
+            </div>
+          </div>
+
+          <div id="piechart1"></div>
+
+          <div class="info-container single">
+            <div class="info-double">
+              <h4>SUPERAN META</h4>
+              <h4>DE PUNTOS TECH</h4>
+              <div class="info-double">
+                <span id="hse-target-average">0</span>
+                <h5>alumnas en promedio</h5>
+              </div>
+              <div class="info-double">
+                <span id="hse-target-sprint">0</span>
+                <h5>alumnas en este sprint</h5>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-container single">
+            <h4>EXPERIENCIA LABORATORIA</h4>
+            <div class="info">
+              <span id="satisfaction-percent">0</span>
+              <h5>de alumnas satisfechas</h5>
+            </div>
+          </div>
+          <div class="info-container single">
+            <h4>PUNTUACIÓN PROFESORES</h4>
+            <div class="info">
+              <span id="teachers-avrg">0</span>
+              <h5>puntos en promedio</h5>
+            </div>
+          </div>
+          <div class="info-container single">
+            <h4>PUNTUACIÓN JEDI MASTERS</h4>
+            <div class="info">
+              <span id="jedi-avrg">0</span>
+              <h5>puntos en promedio</h5>
+            </div>
+          </div>
+
+          <div class="info-container single">
+
+            <div class="double">
+              <pre class="icon-pie-chart"></pre>
+              <h4>NET PROMOTER SCORE</h4>
+              <div class="info">
+                <span id="nps">0</span>
+                <h5>NPS promedio de todos los sprints</h5>
+                <p>Promoters &emsp;<span class="secondary" id="promoters">0</span></p>
+                <p>Passive &emsp;<span class="secondary" id="passive">0</span></p>
+                <p>Detractors &emsp;<span class="secondary" id="detractors">0</span></p>
               </div>
             </div>
 
-            <div id="piechart1"></div>
-
-            <div class="info-container single">
-              <div class="info-double">
-                  <h4>SUPERAN META</h4>
-                  <h4>DE PUNTOS TECH</h4>
-                  <div class="info-double">
-                    <span id="hse-target-average">0</span>
-                    <h5>alumnas en promedio</h5>
-                  </div>
-                  <div class="info-double">
-                    <span id="hse-target-sprint">0</span>
-                    <h5>alumnas en este sprint</h5>
-                  </div>
-                </div>
-              </div>
-
-              <div class="info-container single">
-                <h4>EXPERIENCIA LABORATORIA</h4>
-                <div class="info">
-                  <span id="satisfaction-percent">0</span>
-                  <h5>de alumnas satisfechas</h5>
-                </div>
-              </div>
-              <div class="info-container single">
-                <h4>PUNTUACIÓN PROFESORES</h4>
-                <div class="info">
-                  <span id="teachers-avrg">0</span>
-                  <h5>puntos en promedio</h5>
-                </div>
-              </div>
-              <div class="info-container single">
-                <h4>PUNTUACIÓN JEDI MASTERS</h4>
-                <div class="info">
-                  <span id="jedi-avrg">0</span>
-                  <h5>puntos en promedio</h5>
-                </div>
-              </div>
-
-              <div class="info-container single">
-
-                <div class="double">
-                  <pre class="icon-pie-chart"></pre>
-                  <h4>NET PROMOTER SCORE</h4>
-                  <div class="info">
-                    <span id="nps">0</span>
-                    <h5>NPS promedio de todos los sprints</h5>
-                    <p>Promoters &emsp;<span class="secondary" id="promoters">0</span></p>
-                    <p>Passive &emsp;<span class="secondary" id="passive">0</span></p>
-                    <p>Detractors &emsp;<span class="secondary" id="detractors">0</span></p>
-                </div>
-              </div>
-
-          </section>
+        </section>
 
 
-      </div>
+        </div>
 
 
-    </main>
-		<!-- Base de datos -->
-		<script src="./js/data.js"></script>
-		<!-- Aquí va tus archivos JS -->
-    <script src="./js/app.js"></script>
-  </body>
+  </main>
+  <!-- Base de datos -->
+  <script src="./js/data.js"></script>
+  <!-- Aquí va tus archivos JS -->
+  <script src="./js/app.js"></script>
+</body>
+
 </html>
