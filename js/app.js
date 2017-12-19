@@ -2,7 +2,7 @@
 window.addEventListener('load', allFunctions);
 //función para que funcionen los tabs de informaciópn y de estudiantes
 function openPage(evnt, options) {
-  var  tabs, opcionesPestaña;
+  var tabs, opcionesPestaña;
   tabs = document.getElementsByClassName('tabs');
   for (i = 0; i < tabs.length; i++) {
     tabs[i].style.display = 'none';
@@ -21,7 +21,7 @@ document.getElementById('default').click();
 function allFunctions() {
   var porSede = document.getElementById('sede');
   var porGeneracion = document.getElementById('generacion');
-  var porSprint=document.getElementById('sprint')
+  var porSprint = document.getElementById('sprint')
   //evento para que cambie la información cuando se seleccione la sede
   porSede.addEventListener('change', generaciones);
 
@@ -68,10 +68,10 @@ function allFunctions() {
         if (students[i]['active'] === true) {
           // si están activas entonces se aumentara el contador de
           activeStudents++;
-/*con estos mismos datos se harán las operaciones para sacar los promedios tech y hse*/
+          /*con estos mismos datos se harán las operaciones para sacar los promedios tech y hse*/
           var totalTech = 0;
           var totalHse = 0;
-/*se harael conteo de las etsudiantes que superaron las metas tanto de tech y de hse*/
+          /*se harael conteo de las etsudiantes que superaron las metas tanto de tech y de hse*/
           for (var j = 0; j < sprints; j++) {
             totalTech += students[i].sprints[j].score.tech;
             if (students[i].sprints[j].score.tech > 1000) {
@@ -113,22 +113,22 @@ function allFunctions() {
     }
   }
 
-  
-  }
 
+}
 
+// Vincular a página principal de Laboratoria, al cerrar sesión
 function logOut() {
- if (window.confirm('¿Quieres cerrar la sesión?'))
- {
-   window.location.href = 'http://www.laboratoria.la/';
- }
+  if (window.confirm('¿Quieres cerrar la sesión?')) {
+    window.location.href = 'http://www.laboratoria.la/';
+  }
 }
 
+/* Menú Dropdown*/
 function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
+  document.getElementById("myDropdown").classList.toggle("show");
 }
 
-// Close the dropdown if the user clicks outside of it
+// Cerrar el menú si el usuario da click fuera de las opciones
 window.onclick = function(event) {
   if (!event.target.matches('.ham-menu')) {
 
@@ -171,4 +171,4 @@ window.onclick = function(event) {
     var chart = new google.visualization.PieChart(document.getElementById('piechart'));
     chart.draw(data, options);
   }
-  }
+}
