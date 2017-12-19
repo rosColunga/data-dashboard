@@ -71,7 +71,7 @@ document.addEventListener('change', fillSprints);
       //veriable para estudientes
       var sprints = data[porSede.value][porGeneracion.value].ratings.length;
       var activeStudents = 0; //estudiantes activas
-      var dropoutStudents = 0; //estudiantes desertoras
+      var dropoutStudents = 0; //estudientes desertoras
       var passStudents = 0;
       var techGoal = 0;
       var hseGoal = 0;
@@ -84,11 +84,7 @@ document.addEventListener('change', fillSprints);
           /*con estos mismos datos se harán las operaciones para sacar los promedios tech y hse*/
           var totalTech = 0;
           var totalHse = 0;
-<<<<<<< HEAD
           /*se hara el conteo de las estudiantes que superaron las metas tanto de tech y de hse*/
-=======
-          /*se harael conteo de las etsudiantes que superaron las metas tanto de tech y de hse*/
->>>>>>> 6e3f9c55bc814503ce56b603d83547abb8dbe653
           for (var j = 0; j < sprints; j++) {
             //esta es la operación para aumentar la meta tech
             totalTech += students[i].sprints[j].score.tech;
@@ -115,21 +111,20 @@ document.addEventListener('change', fillSprints);
           dropoutStudents++;
         }
       }
-//sacar promedio de metas entre sprints
+
       var techGoalAverage = techGoal / sprints;
       var hseGoalAverage = hseGoal / sprints;
 
       //mostrar datos en pantalla la primera es para etsudiantes activa y la segunda muestra el porcentaje de desertoras
       document.getElementById('current-students').textContent = activeStudents;
       document.getElementById('dropout').textContent = Math.round((dropoutStudents / students.length) * 100);
-      //porcentaje superado
       document.getElementById('pass-average').textContent = passStudents;
       document.getElementById('pass-percent').textContent = Math.round((passStudents / activeStudents) * 100);
       document.getElementById('tech-target-average').textContent = Math.round(techGoalAverage);
       document.getElementById('hse-target-average').textContent = Math.round(hseGoalAverage);
 
 
-      // Sacar promedio de Net promoter score
+      // Promedio NPS
       var scores = data[porSede.value][porGeneracion.value].ratings;
       var totalNps = 0;
       var totalProm = 0;
@@ -141,18 +136,19 @@ document.addEventListener('change', fillSprints);
         totalDetractors += scores[i].nps.detractors;
         totalNps += scores[i].nps.promoters - scores[i].nps.detractors;
       }
-      // Mostrar datos de Net promoter Score
+      // Mostrar datos en el documento
       document.getElementById('promoters').textContent = Math.round(totalProm / sprints) + '%';
       document.getElementById('passive').textContent = Math.round(totalPassive / sprints) + '%';
       document.getElementById('detractors').textContent = Math.round(totalDetractors / sprints) + '%';
+
       document.getElementById('nps').textContent = Math.round(totalNps / sprints) + '%';
 
 }
   }
 
-<<<<<<< HEAD
   function infoSprint(event) {
     var students = data[porSede.value][porGeneracion.value].students;
+    // Estudiantes que superan el 70% por sprint
     var techTarget = 0;
     var hseGoal = 0;
     for (var i = 0; i < students.length; i++) {
@@ -163,47 +159,32 @@ document.addEventListener('change', fillSprints);
         hseGoal++;
       }
     }
-    //puntos tech
     document.getElementById('tech-target-sprint').textContent = techTarget;
     document.getElementById('hse-target-sprint').textContent = hseGoal;
-  //promedio de jedis y profes
+    // Alumnas satisfechas con Exp laboratoria
     var scores = data[porSede.value][porGeneracion.value].ratings;
     document.getElementById('teachers-avrg').textContent = scores[porSprint.value - 1].teacher;
     document.getElementById('jedi-avrg').textContent = scores[porSprint.value - 1].jedi;
-
-    //satisfacción de alumnas en Laboratoria
     var reachExp = scores[porSprint.value - 1].student.cumple + scores[porSprint.value - 1].student.supera;
     document.getElementById('satisfaction-percent').textContent = reachExp + '%';
   }
-=======
->>>>>>> 6e3f9c55bc814503ce56b603d83547abb8dbe653
 
-}
 
-<<<<<<< HEAD
 };
 
 
-//funcion para cerrar sesión y enviar a la página de Lboratoria
-=======
-// Vincular a página principal de Laboratoria, al cerrar sesión
->>>>>>> 6e3f9c55bc814503ce56b603d83547abb8dbe653
+
 function logOut() {
   if (window.confirm('¿Quieres cerrar la sesión?')) {
     window.location.href = 'http://www.laboratoria.la/';
   }
 }
-<<<<<<< HEAD
-//función para el menpú de hamburguesa
-=======
 
-/* Menú Dropdown*/
->>>>>>> 6e3f9c55bc814503ce56b603d83547abb8dbe653
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
-// Cerrar el menú si el usuario da click fuera de las opciones
+// Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
   if (!event.target.matches('.ham-menu')) {
 
