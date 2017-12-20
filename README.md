@@ -6,18 +6,30 @@
 
 ***
 
-## Flujo de trabajo
+## Proceso
+#### Metodología Doble Diamante
 
-1. Debes realizar un [**fork**](https://gist.github.com/ivandevp/1de47ae69a5e139a6622d78c882e1f74)
-   de este repositorio.
+En este proyecto trabajaremos una metodología Doble Diamante, la cual consiste en 4 etapas que describimos en un gráfico a continuación:
 
-2. Luego deberás **clonar** tu fork en tu máquina. Recuerda que el comando a usar
-   es `git clone`
+![Diagrama de Flujo](assets/images/dash-lab-ddiam.jpg)
 
 
-3. Cuando hayas terminado tu producto, envía un Pull Request a este repositorio
-   (puedes solicitar apoyo de tus profes para este paso).
+## Estructura de HTML:
 
+1. Nuestra web esta conformada por **3 secciones** principales:
+
+  1. **El _Nav_**: Menú de navegación principal. Elemento de texto del lado izquierdo con el título de la página web. Centrado el identificador (logo) de Laboratoria. Flotado del lado derecho, un menú hamburguesa con utilidades desplegables: Idioma / Log-out
+
+  2. **El menú lateral _Aside_**: Sección donde se encuentran los datos generales del usuario (nombre, correo electrónico, foto de perfil). En la parte inferior dos secciones: Configuración; que vincula a una vista que captura los datos. Cerrar sesión; enlace que al dar click vinculará en la home page de www.laboratoria.la
+
+  3. **La sección principal _Main_**: Sección que funciona con 2 visualizaciones por medio de Tabs.
+
+    a. **_"INFORMACIÓN"_:** despliega por medio de 2 _<select_> los datos (Data vinculada desde _Javascript_), por Ciudades y por Generaciones.
+    A un costado de los _select_, tenemos un vínculo _<a_> _"VER PROFESORES"_ que nos lleva a la parte del documento en que se muestran los puntajes dados a Profesores y Jedi.
+
+    b.** _"ESTUDIANTES"_:** Pestaña en la cual tenemos una visualización de los datos generales de las alumnas. Igualmente se despliega por medio de 2 _<select_> por generación y ciudad, y un vínculo _<a_> _"VER PROFESORES"_ que nos lleva a la parte del documento en que se muestran los perfiles de Profesores y Jedi.
+
+![Diagrama de Flujo](assets/images/diagrama-html.jpg)
 
 ## Desarrollo del proyecto
 

@@ -84,17 +84,24 @@ document.addEventListener('change', fillSprints);
           /*con estos mismos datos se harán las operaciones para sacar los promedios tech y hse*/
           var totalTech = 0;
           var totalHse = 0;
+<<<<<<< HEAD
           /*se harael conteo de las etsudiantes que superaron las metas tanto de tech y de hse*/
+=======
+          /*se hara el conteo de las estudiantes que superaron las metas tanto de tech y de hse*/
+>>>>>>> 23aee613efd37e678ff2c22d677839984ca42850
           for (var j = 0; j < sprints; j++) {
+            //esta es la operación para aumentar la meta tech
             totalTech += students[i].sprints[j].score.tech;
             if (students[i].sprints[j].score.tech > 1000) {
               techGoal++;
             }
+            //operación para meta hse
             totalHse += students[i].sprints[j].score.hse;
             if (students[i].sprints[j].score.hse > 800) {
               hseGoal++;
             }
           }
+          //operaciones para sacar los promedios tech y los hse
           var techAverage = Math.floor(totalTech / sprints);
           var hseAverage = Math.floor(totalHse / sprints);
           console.log(hseAverage);
@@ -110,9 +117,7 @@ document.addEventListener('change', fillSprints);
       }
 
       var techGoalAverage = techGoal / sprints;
-      console.log(techGoalAverage);
       var hseGoalAverage = hseGoal / sprints;
-      console.log(hseGoalAverage);
 
       //mostrar datos en pantalla la primera es para etsudiantes activa y la segunda muestra el porcentaje de desertoras
       document.getElementById('current-students').textContent = activeStudents;
@@ -123,6 +128,7 @@ document.addEventListener('change', fillSprints);
       document.getElementById('hse-target-average').textContent = Math.round(hseGoalAverage);
 
 
+<<<<<<< HEAD
 
 
       // Promedio NPS
@@ -143,6 +149,26 @@ document.addEventListener('change', fillSprints);
       document.getElementById('detractors').textContent = Math.round(sumDet / sprints) + '%';
 
       document.getElementById('nps').textContent = Math.round(sumNps / sprints) + '%';
+=======
+      // Promedio NPS
+      var scores = data[porSede.value][porGeneracion.value].ratings;
+      var totalNps = 0;
+      var totalProm = 0;
+      var totalPassive = 0;
+      var totalDetractors = 0;
+      for (var i = 0; i < sprints; i++) {
+        totalProm += scores[i].nps.promoters;
+        totalPassive += scores[i].nps.passive;
+        totalDetractors += scores[i].nps.detractors;
+        totalNps += scores[i].nps.promoters - scores[i].nps.detractors;
+      }
+      // Mostrar datos en el documento
+      document.getElementById('promoters').textContent = Math.round(totalProm / sprints) + '%';
+      document.getElementById('passive').textContent = Math.round(totalPassive / sprints) + '%';
+      document.getElementById('detractors').textContent = Math.round(totalDetractors / sprints) + '%';
+
+      document.getElementById('nps').textContent = Math.round(totalNps / sprints) + '%';
+>>>>>>> 23aee613efd37e678ff2c22d677839984ca42850
 
 }
   }
@@ -163,10 +189,17 @@ document.addEventListener('change', fillSprints);
     document.getElementById('tech-target-sprint').textContent = techTarget;
     document.getElementById('hse-target-sprint').textContent = hseGoal;
     // Alumnas satisfechas con Exp laboratoria
+<<<<<<< HEAD
     var ratings = data[porSede.value][porGeneracion.value].ratings;
     document.getElementById('teachers-avrg').textContent = ratings[porSprint.value - 1].teacher;
     document.getElementById('jedi-avrg').textContent = ratings[porSprint.value - 1].jedi;
     var reachExp = ratings[porSprint.value - 1].student.cumple + ratings[porSprint.value - 1].student.supera;
+=======
+    var scores = data[porSede.value][porGeneracion.value].ratings;
+    document.getElementById('teachers-avrg').textContent = scores[porSprint.value - 1].teacher;
+    document.getElementById('jedi-avrg').textContent = scores[porSprint.value - 1].jedi;
+    var reachExp = scores[porSprint.value - 1].student.cumple + scores[porSprint.value - 1].student.supera;
+>>>>>>> 23aee613efd37e678ff2c22d677839984ca42850
     document.getElementById('satisfaction-percent').textContent = reachExp + '%';
   }
 
@@ -198,6 +231,10 @@ document.addEventListener('change', fillSprints);
 };
 
 
+
+
+
+};
 
 
 
@@ -243,11 +280,11 @@ window.onclick = function(event) {
 
     // Optional; add a title and set the width and height of the chart
     var options = {
-      'title': 'Porcentaje',
+      'title': '',
       'width': 400,
       'height': 300,
       is3D: true,
-      colors: ['#FFC107', "#FF8F00", '#FFD54F', '#FFECB3'],
+      colors: ['#005260', "#047a8e", '#12b786', '#087c5a'],
     };
 
     // Display the chart inside the <div> element with id="piechart"

@@ -1,42 +1,53 @@
-/*
- * Estilos de tu proyecto
- */
+/* ++Se muestran elementos en orden de tags > id's > classes, por orden alfabético++ */
+
+/*Enlaces de opciones del menú*/
 
 a.menu-opt {
   display: block;
+  /*Mayúculas*/
   text-transform: uppercase;
   text-decoration: none;
   color: #000;
   margin: 0;
   padding: 15px 60px;
   font-size: 25px;
+  /*Efecto de transición lenta entre interacciones*/
   transition: all .2s ease-in-out;
 }
 
-a>i.fa{
+/*Iconos menú lateral*/
+
+a>i.fa {
   color: #000;
 }
+
+/*Comportamiento de enlaces bajo el cursor*/
 
 a:hover {
   background-color: #F7B617;
   cursor: pointer;
 }
 
-.left-menu {
-  width: 350px;
-  height: 600px;
-  background: #FCFCFC;
-  border: 1.2px solid rgba(0, 0, 0, .09);
+/*Acceso directo a puntuaciones de profesores*/
+
+a.profess {
+  text-decoration: none;
+  color: #FFF;
 }
+
+/*Características generales*/
 
 body {
   margin: 0;
   padding: 0;
+  /*Tipografía paloseco condensada*/
   font-family: "Roboto Condensed", sans-serif;
   margin: 0;
   padding: 0;
   background: #E8E8E8;
 }
+
+/*Menú hamburguesa*/
 
 div.ham-menu {
   float: right;
@@ -47,23 +58,48 @@ div.ham-menu {
   padding-top: 0;
   margin: 15px 5px;
   background: #F7B617;
+  /*Bordes redondeados*/
   border-radius: 4px;
+  /*Efecto de tiempo de transición con un inicio y un final lentos entre interacciones*/
   transition: all .2s ease-in-out;
 }
 
+/*Menú hamburguesa bajo el cursor*/
+
 div.ham-menu:hover {
   filter: brightness(85%);
+  /*El cursor cambiará su icono por una mano que selecciona*/
   cursor: pointer;
+}
+
+/*Texto bajo numeralias*/
+
+div.info-double {
+  font-size: 15px;
+  font-weight: 400;
+  display: inline-block;
+  margin: 15px;
+  margin-bottom: 40px;
+  /*Alineación vertical a la mitad (de arriba a abajo)*/
+  vertical-align: middle;
+  margin-left: 5px;
+  padding: 8px;
+  padding-bottom: 0;
 }
 
 div.options {
   margin-top: 0;
 }
 
-a.profess {
-  text-decoration: none;
-  color: #FFF;
+/*Opciones desplegables en línea*/
+
+div#filters, div.back>a {
+  margin: 15px 0 10px 25px;
+  display: inline-block;
+  color: #000;
 }
+
+/*Vínculo ver profesores*/
 
 div.profes {
   display: inline-block;
@@ -73,18 +109,25 @@ div.profes {
   margin: 15px;
   margin-left: 20px;
   background: #A8A6A6;
+  /*Texto en mayúculas*/
   text-transform: uppercase;
 }
+
+/*Estilo al superponer cursor vínculo*/
 
 div.profes:hover {
   background-color: #F7B617;
   cursor: pointer;
 }
 
+/*Sección con datos del usuario*/
+
 div.user {
   padding: 0;
   margin: 0;
 }
+
+/*Título principal*/
 
 h1 {
   margin: 0 5px 30px 10px;
@@ -92,9 +135,13 @@ h1 {
   font-weight: 400;
 }
 
-h1, img.logo, .ham-menu, p.avatar-name, section.lucile,.left-menu, main#tabs-container {
+/*Múltiples clases> bloque en línea*/
+
+h1, img.logo, .ham-menu, p.avatar-name, section.lucile, .left-menu, main {
   display: inline-block;
 }
+
+/*Subtítulo > usuario de perfil*/
 
 h2.lu {
   line-height: 0;
@@ -103,15 +150,60 @@ h2.lu {
   margin: 0;
 }
 
+/*Textos 4ta jerarquía*/
+
+h4 {
+  font-size: 23px;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 1em;
+  margin-top: 0;
+}
+
+/*Textos 5ta jerarquía*/
+
+h5 {
+  font-size: 15px;
+  font-weight: 400;
+  margin-right: 0;
+}
+
+/*Líneas del menú hamburguesa*/
+
 hr {
   font-weight: 600;
   border-style: solid;
 }
 
+/*Iconos Font Awesome*/
+
+i.fa {
+  color: #F7B617;
+}
+
+input {
+  margin: 25px;
+  padding: 10px;
+  width: 50%;
+  border-radius: 3px;
+  font-family: "Roboto Mono", serif;
+  font-size: 16px;
+}
+
+input:focus {
+  outline: none;
+}
+
+i.pros {
+  color: #fcce6a;
+}
+
+/*Contenedor de sección principal*/
+
 main {
   width: 68%;
   height: 100%;
-  margin:10px;
+  margin: 20px;
   padding: 10px;
   float: right;
   overflow: hidden;
@@ -119,10 +211,14 @@ main {
   border: transparent;
 }
 
+/*Contenedor de menú de navegación principal*/
+
 nav {
   margin: 0 15px;
   padding: 10px;
 }
+
+/*texto-imagen de perfil*/
 
 p.avatar-name {
   border-radius: 50%;
@@ -140,6 +236,8 @@ p.avatar-name {
   padding: 9px;
 }
 
+/*Email usuario*/
+
 p.email {
   line-height: 0;
   margin: 0;
@@ -151,18 +249,33 @@ section.lucile {
   margin: 15px 0;
 }
 
+/*Estilo de menú de opciones múltiples*/
+
 select {
   padding: 5px;
   margin: 15px;
   margin-left: 5px;
-  font-family: "Roboto Condensed",sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   font-size: 15px;
   font-weight: 400;
 }
 
+/*Estilo al seleccionar menú de opciones múltiples*/
+
 select:focus {
   outline: none;
 }
+
+/*Resaltado e iconos de resultados*/
+
+span, i.accent {
+  font-size: 45px;
+  margin: 0 auto;
+  margin-left: 15px;
+  display: inline-block;
+}
+
+/*Contenido de cajas en main*/
 
 .content {
   box-sizing: content-box;
@@ -174,11 +287,81 @@ select:focus {
   display: none;
 }
 
+/*Títulos de contenido de cajas de main*/
+
 .content>h2 {
   font-family: "Roboto Condensed", sans-serif;
   font-size: 25px;
   font-weight: 400;
 }
+
+/*Menú desplegable*/
+
+.dropdown {
+  float: right;
+  overflow: hidden;
+  display: inline-block;
+}
+
+/*Menú desplegable bajo el cursor*/
+
+.dropdown a:hover {
+  background-color: #f1f1f1;
+}
+
+/*Opciones dentro del Menú desplegable*/
+
+.dropdown-content {
+  font-family: "Roboto Condensed", sans-serif;
+  display: none;
+  float: right;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  overflow: hidden;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/*secciones con datos y números*/
+
+.info-container.single {
+  width: 44%;
+  margin: 10px;
+  text-align: left;
+  padding: 15px;
+  border-top: 1px dashed rgba(0, 0, 0, 0.2);
+  border-left: 1px dashed rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
+  float: left;
+  overflow: hidden;
+}
+
+div.large {
+  display: block;
+}
+
+.large {
+  margin: 30px;
+  display: inline-block;
+}
+
+/*Menú lateral*/
+
+.left-menu {
+  width: 350px;
+  height: 600px;
+  background: #FCFCFC;
+  border: 1.2px solid rgba(0, 0, 0, .09);
+}
+
+/*Logotipo identificador en barra de navegación principal*/
 
 .logo {
   width: 160px;
@@ -189,6 +372,8 @@ select:focus {
   top: 7px;
 }
 
+/*Contenedor de nav*/
+
 .nav-container {
   border: 1.2px solid rgba(0, 0, 0, .09);
   background: #FFF;
@@ -197,7 +382,54 @@ select:focus {
   padding: 0;
 }
 
-#default, .opcionesPestaña {
+.nombre {
+  display: inline-block;
+  text-align: left;
+  margin: 25px 5px 0 15px;
+}
+
+
+/*mostrar menú*/
+.show {
+  display: inline-block;
+}
+
+.skills {
+  vertical-align: top;
+  margin-top: 30px;
+  margin-left: 0;
+}
+
+/*Caja de secciones de contenido principal*/
+
+.wrapper {
+  padding: 0;
+  border-right: 1.2px solid rgba(0, 0, 0, .09);
+  background: #FFF;
+  margin: 0 auto;
+  vertical-align: top;
+  padding: 0;
+  display: inline-block;
+  width: 100%;
+  float: right;
+  overflow: hidden;
+}
+
+#block {
+  height: 302px;
+  text-align: center;
+  float: right;
+  overflow: hidden;
+}
+
+#container {
+  margin: 15px;
+  margin-left: 25px;
+}
+
+/*Sección "Información" */
+
+#default, .opcionesPestaña, .opcionesPestañaactive, .opcionesPestañaactiveactiveactive, .opcionesPestañaactiveactive {
   border-color: transparent;
   text-transform: uppercase;
   font-family: "Roboto Condensed", sans-serif;
@@ -212,124 +444,46 @@ select:focus {
   transition: all .2s ease-in-out;
 }
 
-#default, .opcionesPestaña:hover {
+/*secciones de información bajo el cursor*/
+
+#default, .opcionesPestaña:hover, .opcionesPestañaactive:hover, .opcionesPestañaactiveactiveactive:hover, .opcionesPestañaactiveactive:hover {
   background-color: #a8a6a6;
   border-top: solid 5px #a8a6a6;
 }
 
-#default, .opcionesPestaña:focus {
+/*Estilo de secciones de información al ser seleccionadas*/
+
+#default, .opcionesPestaña:focus, .opcionesPestañaactive:focus, .opcionesPestañaactiveactiveactive:focus, .opcionesPestañaactiveactive:focus {
   outline: none;
-  border: none;
+  s border: none;
   border-top: solid 5px #F7B617;
   background: #fff;
   font-weight: 700;
   color: #000;
 }
 
-.wrapper {
-  padding: 0;
-  border-right: 1.2px solid rgba(0, 0, 0, .09);
-  background: #FCFCFC;
-  margin: 0 auto;
-  vertical-align: top;
-  padding: 0;
-  display: inline-block;
-  width: 100%;
-  float: right;
-  overflow: hidden;
+#noDefault:focus {
+  outline: none;
+  s border: none;
+  border-top: solid 5px #F7B617;
+  background: #fff;
+  font-weight: 700;
+  color: #000;
 }
 
 #generation, option {
   display: inline-block;
 }
 
-
-
-div#filters {
-  margin: 15px 0 10px 25px;
-  display: inline-block;
-}
-
-
-.nombre{
-  display: inline-block;
-  text-align: left;
-  margin: 25px 5px 0 15px;
-}
-
-.info-container.single{
-  width: 43%;
-  margin: 25px;
-  text-align: left;
-  padding: 15px;
-  border: .5px dashed rgba(0, 0, 0, 0.2);
-}
-
-h4 {
-  font-size: 23px;
-  text-transform: uppercase;
-  font-weight: 400;
-  line-height: 1em;
-  margin-top: 0;
-}
-
-h5 {
-  font-size: 15px;
-  font-weight: 400;
-  margin-right: 0;
-}
-
-div.info-double {
-  font-size: 15px;
-  font-weight: 400;
-  display: inline-block;
-  margin: 15px;
-  margin-bottom: 40px;
-  vertical-align: middle;
-  margin-left: 5px;
-  padding: 8px;
-  padding-bottom: 0;
-}
-
-span, i.fa-check-square-o, i.fa-percent {
-  font-size: 45px;
-  margin: 0 auto;
-  margin-left: 15px;
-  display: inline-block;
-}
-
-i.fa {
-  color: #F7B617;
-}
-
-.dropdown {
-  float: right;
+#piechart {
+  float: left;
   overflow: hidden;
-  display: inline-block;
 }
 
-.dropdown-content {
-  font-family: "Roboto Condensed", sans-serif;
-  display: none;
-  float: right;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  overflow: hidden;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown a:hover {
-  background-color: #f1f1f1
-}
-
-.show {
-  display:inline-block;
+#verProfesores {
+  background-color: #005260;
+  text-align: center;
+  border-top: 1px dashed rgba(9, 9, 9, 0.2);
+  border-left: 1px dashed rgba(9, 9, 9, 0.2);
+  color: #FFF;
 }
