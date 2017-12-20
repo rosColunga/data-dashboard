@@ -99,6 +99,11 @@ div#filters, div.back>a {
   color: #000;
 }
 
+div.back>a {
+  float:right;
+  overflow: hidden;
+}
+
 /*Vínculo ver profesores*/
 
 div.profes {
@@ -113,6 +118,10 @@ div.profes {
   text-transform: uppercase;
 }
 
+#over {
+  margin-top: 45px;
+  margin-bottom: 10px;
+}
 /*Estilo al superponer cursor vínculo*/
 
 div.profes:hover {
@@ -123,8 +132,13 @@ div.profes:hover {
 /*Sección con datos del usuario*/
 
 div.user {
-  padding: 0;
+  padding: 10px 0;
   margin: 0;
+  transition: all .2s ease-in-out;
+}
+
+div.user:hover {
+  background: lightgray;
 }
 
 /*Título principal*/
@@ -427,6 +441,10 @@ div.large {
   margin-left: 25px;
 }
 
+.linear {
+  margin: 5px;
+}
+
 /*Sección "Información" */
 
 #default, .opcionesPestaña, .opcionesPestañaactive, .opcionesPestañaactiveactiveactive, .opcionesPestañaactiveactive {
@@ -478,6 +496,13 @@ div.large {
 #piechart {
   float: left;
   overflow: hidden;
+}
+
+#rectangular {
+  width: 49%;
+  margin-top: 7px;
+  float: right;
+  overflow:hidden;
 }
 
 #verProfesores {
