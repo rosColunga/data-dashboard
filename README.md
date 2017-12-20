@@ -11,7 +11,7 @@
 
 En este proyecto trabajaremos una metodología Doble Diamante, la cual consiste en 4 etapas que describimos en un gráfico a continuación:
 
-![Diagrama de Flujo](assets/images/dash-lab-ddiam.jpg)
+![Proceso metodológico](assets/images/dash-lab-ddiam.jpg)
 
 
 ## Estructura de HTML:
@@ -20,14 +20,18 @@ En este proyecto trabajaremos una metodología Doble Diamante, la cual consiste 
 
   1. **El _Nav_**: Menú de navegación principal. Elemento de texto del lado izquierdo con el título de la página web. Centrado el identificador (logo) de Laboratoria. Flotado del lado derecho, un menú hamburguesa con utilidades desplegables: Idioma / Log-out
 
-  2. **El menú lateral _Aside_**: Sección donde se encuentran los datos generales del usuario (nombre, correo electrónico, foto de perfil). En la parte inferior dos secciones: Configuración; que vincula a una vista que captura los datos. Cerrar sesión; enlace que al dar click vinculará en la home page de www.laboratoria.la
+  2. **El menú lateral _Aside_**: Sección donde se encuentran los datos generales del usuario (nombre, correo electrónico, foto de perfil). En la parte inferior dos secciones: **Configuración**; que vincula a una vista contenida dentro de la estructura de carpetas _(views/config.html)_ que captura los datos como se muestra a continuación.
+
+  ![View Configuración](assets/images/view.JPG)
+
+  Cerrar sesión; enlace que al dar click vinculará en la home page de www.laboratoria.la
 
   3. **La sección principal _Main_**: Sección que funciona con 2 visualizaciones por medio de Tabs.
 
-    a. **_"INFORMACIÓN"_:** despliega por medio de 2 _<select_> los datos (Data vinculada desde _Javascript_), por Ciudades y por Generaciones.
+    i. **"INFORMACIÓN":** despliega por medio de 2 _<select_> los datos (Data vinculada desde _Javascript_), por Ciudades y por Generaciones.
     A un costado de los _select_, tenemos un vínculo _<a_> _"VER PROFESORES"_ que nos lleva a la parte del documento en que se muestran los puntajes dados a Profesores y Jedi.
 
-    b.** _"ESTUDIANTES"_:** Pestaña en la cual tenemos una visualización de los datos generales de las alumnas. Igualmente se despliega por medio de 2 _<select_> por generación y ciudad, y un vínculo _<a_> _"VER PROFESORES"_ que nos lleva a la parte del documento en que se muestran los perfiles de Profesores y Jedi.
+    ii.**"ESTUDIANTES":** Pestaña en la cual tenemos una visualización de los datos generales de las alumnas. Igualmente se despliega por medio de 2 _<select_> por generación y ciudad, y un vínculo _<a_> _"VER PROFESORES"_ que nos lleva a la parte del documento en que se muestran los perfiles de Profesores y Jedi.
 
 ![Diagrama de Flujo](assets/images/diagrama-html.jpg)
 
