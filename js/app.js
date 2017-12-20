@@ -2,7 +2,7 @@
 window.addEventListener('load', allFunctions);
 //función para que funcionen los tabs de informaciópn y de estudiantes
 function openPage(evnt, options) {
-  var  tabs, opcionesPestaña;
+  var tabs, opcionesPestaña;
   tabs = document.getElementsByClassName('tabs');
   for (i = 0; i < tabs.length; i++) {
     tabs[i].style.display = 'none';
@@ -21,11 +21,12 @@ document.getElementById('default').click();
 function allFunctions() {
   var porSede = document.getElementById('sede');
   var porGeneracion = document.getElementById('generacion');
-  var porSprint=document.getElementById('sprint')
+  var porSprint = document.getElementById('sprint')
   //evento para que cambie la información cuando se seleccione la sede
   porSede.addEventListener('change', generaciones);
-
+document.addEventListener('change', fillSprints);
   document.addEventListener('change', info);
+  document.addEventListener('change', infoSprint);
 
 
   /*funció n que nos ayuda a llamar la data de las generaciones*/
@@ -47,7 +48,19 @@ function allFunctions() {
     }
   }
 
+  function fillSprints(event) {
+    if (event.target === porSede || event.target === porGeneracion) {
 
+      var sprints = data[porSede.value][porGeneracion.value].ratings.length;
+      porSprint.innerHTML = '';
+      for (var i = sprints; 0 < i; i--) {
+        var optionSprint = document.createElement('option');
+        optionSprint.value = i;
+        optionSprint.textContent = 'sprint ' + (i);
+        porSprint.appendChild(optionSprint);
+      }
+    }
+  }
 
   /*función que desplegará los datos en pantalla de acuerdo a lo solicitado en este caso primero mostraremos
   las estudientes activas y el porcentaje de deserción*/
@@ -68,10 +81,10 @@ function allFunctions() {
         if (students[i]['active'] === true) {
           // si están activas entonces se aumentara el contador de
           activeStudents++;
-/*con estos mismos datos se harán las operaciones para sacar los promedios tech y hse*/
+          /*con estos mismos datos se harán las operaciones para sacar los promedios tech y hse*/
           var totalTech = 0;
           var totalHse = 0;
-/*se harael conteo de las etsudiantes que superaron las metas tanto de tech y de hse*/
+          /*se harael conteo de las etsudiantes que superaron las metas tanto de tech y de hse*/
           for (var j = 0; j < sprints; j++) {
             totalTech += students[i].sprints[j].score.tech;
             if (students[i].sprints[j].score.tech > 1000) {
@@ -110,22 +123,92 @@ function allFunctions() {
       document.getElementById('hse-target-average').textContent = Math.round(hseGoalAverage);
 
 
-    }
+
+
+      // Promedio NPS
+      var ratings = data[porSede.value][porGeneracion.value].ratings;
+      var sumNps = 0;
+      var sumProm = 0;
+      var sumPass = 0;
+      var sumDet = 0;
+      for (var i = 0; i < sprints; i++) {
+        sumProm += ratings[i].nps.promoters;
+        sumPass += ratings[i].nps.passive;
+        sumDet += ratings[i].nps.detractors;
+        sumNps += ratings[i].nps.promoters - ratings[i].nps.detractors;
+      }
+      // Mostrar datos en el documento
+      document.getElementById('promoters').textContent = Math.round(sumProm / sprints) + '%';
+      document.getElementById('passive').textContent = Math.round(sumPass / sprints) + '%';
+      document.getElementById('detractors').textContent = Math.round(sumDet / sprints) + '%';
+
+      document.getElementById('nps').textContent = Math.round(sumNps / sprints) + '%';
+
+}
   }
 
-  
+  function infoSprint(event) {
+    var students = data[porSede.value][porGeneracion.value].students;
+    // Estudiantes que superan el 70% por sprint
+    var techTarget = 0;
+    var hseGoal = 0;
+    for (var i = 0; i < students.length; i++) {
+      if (students[i]['active'] === true && students[i].sprints[porSprint.value - 1].score.tech > 1000) {
+        techTarget++;
+      }
+      if (students[i]['active'] === true && students[i].sprints[porSprint.value - 1].score.hse > 800) {
+        hseGoal++;
+      }
+    }
+    document.getElementById('tech-target-sprint').textContent = techTarget;
+    document.getElementById('hse-target-sprint').textContent = hseGoal;
+    // Alumnas satisfechas con Exp laboratoria
+    var ratings = data[porSede.value][porGeneracion.value].ratings;
+    document.getElementById('teachers-avrg').textContent = ratings[porSprint.value - 1].teacher;
+    document.getElementById('jedi-avrg').textContent = ratings[porSprint.value - 1].jedi;
+    var reachExp = ratings[porSprint.value - 1].student.cumple + ratings[porSprint.value - 1].student.supera;
+    document.getElementById('satisfaction-percent').textContent = reachExp + '%';
   }
+
+  google.charts.setOnLoadCallback(drawChart);
+    // Draw the chart and set the chart values
+    function drawChart() {
+        //Create the data table5
+        var data5 = google.visualization.arrayToDataTable([
+            ['', ''],
+            ['Above Score', techGoalAverage],
+            ['Under Score', ss2],
+        ]);
+        // Optional; add a title and set the width and height of the chart
+        var options = {
+            'width': 390,
+            'height': 290,
+            is3D: true,
+            colors: ['#FFC107', "#FF8F00", '#FFD54F', '#FFECB3'],
+            backgroundColor: {
+                fill: 'transparent'
+            }
+        };
+        //Dibujamos el nuevo gráfico
+        var chart5 = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart5.draw(data5, options);
+    }
+
+
+};
+
+
+
 
 
 function logOut() {
- if (window.confirm('¿Quieres cerrar la sesión?'))
- {
-   window.location.href = 'http://www.laboratoria.la/';
- }
+  if (window.confirm('¿Quieres cerrar la sesión?')) {
+    window.location.href = 'http://www.laboratoria.la/';
+  }
 }
 
 function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
+  document.getElementById("myDropdown").classList.toggle("show");
 }
 
 // Close the dropdown if the user clicks outside of it
@@ -171,4 +254,4 @@ window.onclick = function(event) {
     var chart = new google.visualization.PieChart(document.getElementById('piechart'));
     chart.draw(data, options);
   }
-  }
+}
