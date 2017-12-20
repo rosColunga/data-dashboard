@@ -1,4 +1,3 @@
-
 //evento para que cuando cargue la página comience a cargar toda la información
 window.addEventListener('load', allFunctions);
 //función para que funcionen los tabs de informaciópn y de estudiantes
@@ -25,8 +24,9 @@ function allFunctions() {
   var porSprint = document.getElementById('sprint')
   //evento para que cambie la información cuando se seleccione la sede
   porSede.addEventListener('change', generaciones);
-
+document.addEventListener('change', fillSprints);
   document.addEventListener('change', info);
+  document.addEventListener('change', infoSprint);
 
 
   /*funció n que nos ayuda a llamar la data de las generaciones*/
@@ -48,7 +48,19 @@ function allFunctions() {
     }
   }
 
+  function fillSprints(event) {
+    if (event.target === porSede || event.target === porGeneracion) {
 
+      var sprints = data[porSede.value][porGeneracion.value].ratings.length;
+      porSprint.innerHTML = '';
+      for (var i = sprints; 0 < i; i--) {
+        var optionSprint = document.createElement('option');
+        optionSprint.value = i;
+        optionSprint.textContent = 'sprint ' + (i);
+        porSprint.appendChild(optionSprint);
+      }
+    }
+  }
 
   /*función que desplegará los datos en pantalla de acuerdo a lo solicitado en este caso primero mostraremos
   las estudientes activas y el porcentaje de deserción*/
@@ -72,17 +84,20 @@ function allFunctions() {
           /*con estos mismos datos se harán las operaciones para sacar los promedios tech y hse*/
           var totalTech = 0;
           var totalHse = 0;
-          /*se harael conteo de las etsudiantes que superaron las metas tanto de tech y de hse*/
+          /*se hara el conteo de las estudiantes que superaron las metas tanto de tech y de hse*/
           for (var j = 0; j < sprints; j++) {
+            //esta es la operación para aumentar la meta tech
             totalTech += students[i].sprints[j].score.tech;
             if (students[i].sprints[j].score.tech > 1000) {
               techGoal++;
             }
+            //operación para meta hse
             totalHse += students[i].sprints[j].score.hse;
             if (students[i].sprints[j].score.hse > 800) {
               hseGoal++;
             }
           }
+          //operaciones para sacar los promedios tech y los hse
           var techAverage = Math.floor(totalTech / sprints);
           var hseAverage = Math.floor(totalHse / sprints);
           console.log(hseAverage);
@@ -98,9 +113,7 @@ function allFunctions() {
       }
 
       var techGoalAverage = techGoal / sprints;
-      console.log(techGoalAverage);
       var hseGoalAverage = hseGoal / sprints;
-      console.log(hseGoalAverage);
 
       //mostrar datos en pantalla la primera es para etsudiantes activa y la segunda muestra el porcentaje de desertoras
       document.getElementById('current-students').textContent = activeStudents;
@@ -111,25 +124,67 @@ function allFunctions() {
       document.getElementById('hse-target-average').textContent = Math.round(hseGoalAverage);
 
 
+      // Promedio NPS
+      var scores = data[porSede.value][porGeneracion.value].ratings;
+      var totalNps = 0;
+      var totalProm = 0;
+      var totalPassive = 0;
+      var totalDetractors = 0;
+      for (var i = 0; i < sprints; i++) {
+        totalProm += scores[i].nps.promoters;
+        totalPassive += scores[i].nps.passive;
+        totalDetractors += scores[i].nps.detractors;
+        totalNps += scores[i].nps.promoters - scores[i].nps.detractors;
+      }
+      // Mostrar datos en el documento
+      document.getElementById('promoters').textContent = Math.round(totalProm / sprints) + '%';
+      document.getElementById('passive').textContent = Math.round(totalPassive / sprints) + '%';
+      document.getElementById('detractors').textContent = Math.round(totalDetractors / sprints) + '%';
+
+      document.getElementById('nps').textContent = Math.round(totalNps / sprints) + '%';
+
+}
+  }
+
+  function infoSprint(event) {
+    var students = data[porSede.value][porGeneracion.value].students;
+    // Estudiantes que superan el 70% por sprint
+    var techTarget = 0;
+    var hseGoal = 0;
+    for (var i = 0; i < students.length; i++) {
+      if (students[i]['active'] === true && students[i].sprints[porSprint.value - 1].score.tech > 1000) {
+        techTarget++;
+      }
+      if (students[i]['active'] === true && students[i].sprints[porSprint.value - 1].score.hse > 800) {
+        hseGoal++;
+      }
     }
+    document.getElementById('tech-target-sprint').textContent = techTarget;
+    document.getElementById('hse-target-sprint').textContent = hseGoal;
+    // Alumnas satisfechas con Exp laboratoria
+    var scores = data[porSede.value][porGeneracion.value].ratings;
+    document.getElementById('teachers-avrg').textContent = scores[porSprint.value - 1].teacher;
+    document.getElementById('jedi-avrg').textContent = scores[porSprint.value - 1].jedi;
+    var reachExp = scores[porSprint.value - 1].student.cumple + scores[porSprint.value - 1].student.supera;
+    document.getElementById('satisfaction-percent').textContent = reachExp + '%';
   }
 
 
-}
+};
 
-// Vincular a página principal de Laboratoria, al cerrar sesión
+
+
 function logOut() {
   if (window.confirm('¿Quieres cerrar la sesión?')) {
     window.location.href = 'http://www.laboratoria.la/';
   }
 }
 
-/* Menú Dropdown*/
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
-// Cerrar el menú si el usuario da click fuera de las opciones
+// Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
   if (!event.target.matches('.ham-menu')) {
 
