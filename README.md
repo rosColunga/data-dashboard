@@ -62,3 +62,12 @@ Se juntará la parate de maquetado con la de funcionalidad para que el producto 
 ## Diagrama de flujo
 
 ![Diagrama de Flujo](assets/images/diagramaflujo.jpg)
+
+## Organización del trabajo en equipo
+
+Para el desarrollo del proyecto el equipo utilizo diferentes herramientas de comunicación como lo es Hangouts y Whatsapp, para mantener contacto entre los miembros de este.
+
+Mientras que con el cliente se mantuvo comunicación mediante un canal en Slack y se compartieron las dudas con documentos de Google Drive, el cliente también pudo ver como el equipo avanzaba en el desarrollo del producto mediante un tablero de Trello; donde el equipo actualizaba sus avances, este se puede consultar a traves del siguiente enlace:
+
+https://trello.com/b/3T7Dp9d2/producto-final
+
