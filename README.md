@@ -16,9 +16,11 @@ En este proyecto trabajaremos una metodología Doble Diamante, la cual consiste 
 
 ## Estructura de HTML:
 
-### Proceso de diseño previo mediante sketching en Figma y Marvel App en https://github.com/rosColunga/retos-ux#3-sketch-para-herramienta-dashboard-de-laboratoria 
+**Proceso de diseño previo en:** https://github.com/rosColunga/retos-ux#3-sketch-para-herramienta-dashboard-de-laboratoria 
 
-1. Nuestra web esta conformada por **3 secciones** principales:
+**Prototipo:** https://marvelapp.com/78c5h2
+
+#### Nuestra web esta conformada por **3 secciones** principales:
 
   1. **El _Nav_**: Menú de navegación principal. Elemento de texto del lado izquierdo con el título de la página web. Centrado el identificador (logo) de Laboratoria. Flotado del lado derecho, un menú hamburguesa con utilidades desplegables: Idioma / Log-out
 
@@ -65,6 +67,7 @@ Se anexará la parate de maquetado con la de funcionalidad para que el producto 
 ## Organización del trabajo en equipo
 
 **Proceso y metodología de diseño, maquetación:** Rosa Talía Colunga Tello
+
 **Manejo de Data y funcionalidad:** Brenda Karina Recinos Quezada
 
 Para el desarrollo del proyecto el equipo utilizo diferentes herramientas de comunicación como lo es Hangouts y Whatsapp, para mantener contacto entre los miembros de este.
