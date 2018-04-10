@@ -1,8 +1,8 @@
 # Data Dashboard
 
-* **Track:** _Common Core_
-* **Curso:** _Creando tu primer sitio web interactivo_
-* **Unidad:** _Producto final_
+El dashboard de Laboratoria es una herramienta que permite a los usuarios (training managers, teachers, entre otros miembros del staff) ver datos sobre las alumnas y su progreso dentro de Laboratoria.
+
+![Visualizador de producto](assets/images/ddash-mockup.jpg)
 
 ***
 
@@ -14,11 +14,24 @@ En este proyecto trabajaremos una metodología Doble Diamante, la cual consiste 
 ![Proceso metodológico](assets/images/dash-lab-ddiam.jpg)
 
 
-## Estructura de HTML:
+## Empatía y definición
 
 **Proceso de diseño previo en:** https://github.com/rosColunga/retos-ux#3-sketch-para-herramienta-dashboard-de-laboratoria 
 
 **Prototipo:** https://marvelapp.com/78c5h2
+
+#### Testeo y retroalimentación del cliente
+Una vez analizados los requerimientos iniciales del cliente: *Laboratoria*; y habiendo detectado los **pain-points** del usuario *Trainning Managers*: frustración y pérdida de productividad ante la desorganización y alta cantidad de datos. Procedemos a realizar un testing por medio del prototipo creado a través de Marvel App, seguido de ello se realiza una entrevista a Lucile Baratier, la Trainning Manager de la Sede en México, para obtener su feedback.
+
+![Proceso metodológico](assets/images/preguntas-cliente.png)
+
+#### Insights
+De dicha entrevista vía y remota y una presencial con el cliente, mostrándole avances de desarrollo, obtuvimos la siguiente información.
+- *El uso de gráficas no se considera indispensable.* Nuestra usuaria exclama preferir contar con organización y claridad visualmente en números que por medio de gráficas.
+- En caso de presentar datos o fotografías de las alumnas, es *importante contar con un Log-in* para proteger la información.
+- Se prefiere *funcionalidad* en mostrar data y filtrar resultados que interactividad compleja o procesos largos.
+
+## Estructura de HTML:
 
 #### Nuestra web esta conformada por **3 secciones** principales:
 
