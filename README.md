@@ -16,7 +16,7 @@ En este proyecto trabajaremos una metodología Doble Diamante, la cual consiste 
 
 ## Empatía y definición
 
-**Proceso de diseño previo [aquí](https://github.com/rosColunga/retos-ux#3-sketch-para-herramienta-dashboard-de-laboratoria)**
+###### Proceso de diseño previo [aquí](https://github.com/rosColunga/retos-ux#3-sketch-para-herramienta-dashboard-de-laboratoria)
 
 **Prototipo:** https://marvelapp.com/78c5h2
 
